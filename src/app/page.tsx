@@ -71,7 +71,7 @@ export default function Home() {
             Quiz System
           </h1>
           <p className="text-lg text-slate-600">
-            Pilih kategori dan topik untuk mula menjawab soalan
+            Select a category and topic to start answering questions
           </p>
           <p className="text-lg text-red-600">
             注意：AI 生成的題目答案可能有誤，請以原課文爲準
@@ -134,7 +134,7 @@ export default function Home() {
                         >
                           {quizzes.find((q) => q.id === topic.quizId)?.questions
                             .length || 0}{" "}
-                          Soalan
+                          Questions
                         </span>
                       </Link>
                     ))}

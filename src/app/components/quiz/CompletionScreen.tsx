@@ -34,28 +34,28 @@ export const CompletionScreen: React.FC<CompletionScreenProps> = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Tahniah, Kuiz Selesai!</h2>
-        <p className="text-gray-600 text-lg">Anda telah menjawab semua soalan.</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Congratulations, Quiz Completed!</h2>
+        <p className="text-gray-600 text-lg">You have answered all questions.</p>
       </div>
       
       {/* Score display */}
       <div className="my-8">
-        <div className="text-gray-600 mb-2">Skor Anda</div>
+        <div className="text-gray-600 mb-2">Your Score</div>
         <div className="text-6xl font-bold text-blue-600">{score}%</div>
         <div className="mt-2 text-gray-600">
-          {correctAnswers} jawapan betul dari {totalQuestions} soalan
+          {correctAnswers} correct answers out of {totalQuestions} questions
         </div>
       </div>
       
       {/* Statistics summary */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-sm mx-auto">
         <div className="bg-green-100/70 p-4 rounded-lg">
-          <div className="text-sm text-green-800">Jawapan Betul</div>
+          <div className="text-sm text-green-800">Correct Answers</div>
           <div className="text-2xl font-bold text-green-800">{correctAnswers}</div>
         </div>
         
         <div className="bg-red-100/70 p-4 rounded-lg">
-          <div className="text-sm text-red-800">Jawapan Salah</div>
+          <div className="text-sm text-red-800">Wrong Answers</div>
           <div className="text-2xl font-bold text-red-800">{wrongAnswers}</div>
         </div>
       </div>
@@ -73,7 +73,7 @@ export const CompletionScreen: React.FC<CompletionScreenProps> = ({
               </svg>
             }
           >
-            Cuba Semula Soalan Salah
+            Retry Wrong Questions
           </Button>
         )}
         
@@ -87,7 +87,7 @@ export const CompletionScreen: React.FC<CompletionScreenProps> = ({
             </svg>
           }
         >
-          Mula Semula Kuiz
+          Restart Quiz
         </Button>
         
         <Button 
@@ -100,7 +100,7 @@ export const CompletionScreen: React.FC<CompletionScreenProps> = ({
             </svg>
           }
         >
-          Kembali ke Menu Utama
+          Back to Main Menu
         </Button>
       </div>
     </div>

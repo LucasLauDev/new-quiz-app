@@ -73,21 +73,21 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-          <p className="mt-2 text-gray-600">Memuatkan...</p>
+          <p className="mt-2 text-gray-600">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 font-sans">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 font-sans">
       <div className="container mx-auto p-4 sm:p-6 lg:p-8">
         {/* Header */}
         <header className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between">
           <div className="mb-4 sm:mb-0 mt-3">
             <h1 className="text-3xl font-bold text-gray-800">{quiz?.title}</h1>
             <p className="text-gray-600 py-2">
-              Jawab soalan berikut untuk menguji pengetahuan anda.
+              Answer the following questions to test your knowledge.
             </p>
           </div>
           <Button
@@ -108,7 +108,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
               </svg>
             }
           >
-            Menu Utama
+            Main Menu
           </Button>
         </header>
 
@@ -153,9 +153,9 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  Tiada Soalan
+                  No Questions
                 </h3>
-                <p className="text-gray-600 mb-4">Tiada soalan tersedia.</p>
+                <p className="text-gray-600 mb-4">No questions available.</p>
               </div>
             ) : currentQuestion ? (
               <QuestionCard
@@ -181,7 +181,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
               }
             />
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-              <h3 className="font-medium text-gray-900 mb-3">Tindakan</h3>
+              <h3 className="font-medium text-gray-900 mb-3">Actions</h3>
               <Button
                 onClick={resetQuiz}
                 variant="outline"
@@ -201,7 +201,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                   </svg>
                 }
               >
-                Mula Semula Kuiz
+                Restart Quiz
               </Button>
             </div>
           </aside>

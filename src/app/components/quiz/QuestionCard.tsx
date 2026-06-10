@@ -38,7 +38,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     if (isCorrect) {
       return explanation.correct;
     } else {
-      return explanation.incorrect[selectedOptionId] || 'Jawapan tidak tepat.';
+      return explanation.incorrect[selectedOptionId] || 'Incorrect answer.';
     }
   };
 
@@ -125,7 +125,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             </div>
             <div className="ml-3">
               <h4 className="text-md font-bold text-gray-900">
-                {isCorrect ? 'Jawapan Betul!' : 'Jawapan Salah!'}
+                {isCorrect ? 'Correct!' : 'Wrong!'}
               </h4>
               <p className="mt-1 text-sm text-gray-700">{getExplanationText()}</p>
             </div>
@@ -136,7 +136,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       {/* Actions */}
       <div className="p-5 bg-gray-50/70 border-t border-gray-200/80 flex flex-col sm:flex-row sm:justify-between sm:items-center">
         <p className="text-sm text-gray-600 mb-3 sm:mb-0">
-          Pilih satu jawapan dan semak.
+          Select one answer and check.
         </p>
         <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
           <Button
@@ -149,7 +149,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               </svg>
             }
           >
-            Semak Jawapan
+            Check Answer
           </Button>
           
           {isAnswerChecked && (
@@ -162,7 +162,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                 </svg>
               }
             >
-              {isLastQuestion ? 'Tamat' : 'Soalan Seterusnya'}
+              {isLastQuestion ? 'Finish' : 'Next Question'}
             </Button>
           )}
         </div>
