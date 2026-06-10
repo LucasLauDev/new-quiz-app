@@ -45,14 +45,9 @@ jobs:
           node-version: "20"
           cache: 'pnpm' # Use pnpm for caching node_modules
 
-      # 3. Configure GitHub Pages for Next.js
-      # This action automatically configures the basePath and assetPrefix in your
-      # next.config.js file. It also ensures image optimization is disabled,
-      # which is necessary for a static export.
+      # 3. Configure GitHub Pages (basePath/assetPrefix live in next.config.ts)
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
 
       # 4. Restore Next.js build cache
       # This step caches the .next/cache directory to speed up subsequent builds.
@@ -71,11 +66,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       
-      # 6. Build the Next.js application
-      # The `next build` command will automatically use the static export feature
-      # because `output: 'export'` is added to next.config.js by the `configure-pages` action.
+      # 6. Build the Next.js application (static export to ./out)
       - name: Build with Next.js
-        run: pnpm next build
+        run: pnpm build
 
       # 7. Upload the build artifact
       # The output from `next build` (the `out` directory) is uploaded as a Pages artifact.
