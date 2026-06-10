@@ -70,33 +70,42 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-          <p className="mt-2 text-gray-600">Loading...</p>
+      <div className="min-h-screen mesh-gradient flex items-center justify-center p-4">
+        <div className="glass-panel max-w-xs w-full py-8 px-6 rounded-2xl border border-white/60 shadow-lg text-center flex flex-col items-center justify-center">
+          <div className="relative mb-5">
+            <div className="w-16 h-16 rounded-full border-4 border-slate-100 border-t-indigo-600 animate-spin"></div>
+            <div className="absolute inset-0 flex items-center justify-center text-2xl animate-pulse-subtle">
+              🧠
+            </div>
+          </div>
+          <p className="text-slate-800 font-bold tracking-wide text-sm">Preparing Quiz...</p>
+          <p className="text-slate-400 text-xs mt-1 font-medium">Just a moment</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 font-sans">
-      <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen mesh-gradient text-slate-800 font-sans py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <header className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between">
-          <div className="mb-4 sm:mb-0 mt-3">
-            <h1 className="text-3xl font-bold text-gray-800">{quiz?.title}</h1>
-            <p className="text-gray-600 py-2">
-              Answer the following questions to test your knowledge.
+        <header className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-fade-in-up">
+          <div className="mt-3">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-display bg-linear-to-r from-slate-900 via-indigo-950 to-slate-900 bg-clip-text text-transparent">
+              {quiz?.title}
+            </h1>
+            <p className="text-slate-500 font-medium text-sm sm:text-base mt-1">
+              Answer the questions below to test your understanding.
             </p>
           </div>
           <Button
             onClick={handleBackToMenu}
             variant="outline"
+            className="group"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-4.5 w-4.5 group-hover:-translate-x-0.5 transition-transform"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -108,13 +117,13 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
               </svg>
             }
           >
-            Main Menu
+            Back to Menu
           </Button>
         </header>
 
         {/* Quiz content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <main className="lg:col-span-2 space-y-6">
+          <main className="lg:col-span-2 space-y-6 animate-fade-in-up delay-100">
             {isCompleted &&
             currentQuestionIndex === questions.length &&
             quizMode !== QuizMode.WRONG_QUESTIONS ? (
@@ -135,11 +144,11 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                 onBackToMenu={handleBackToMenu}
               />
             ) : questions.length === 0 ? (
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+              <div className="glass-panel rounded-2xl shadow-xs border border-slate-100 p-8 text-center animate-fade-in-up">
                 <div className="mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 mx-auto text-gray-400"
+                    className="h-12 w-12 mx-auto text-slate-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -152,10 +161,10 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  No Questions
+                <h3 className="text-lg font-bold text-slate-800 mb-1">
+                  No Questions Remaining
                 </h3>
-                <p className="text-gray-600 mb-4">No questions available.</p>
+                <p className="text-slate-500 text-sm">All questions completed or none available in this category.</p>
               </div>
             ) : currentQuestion ? (
               <QuestionCard
@@ -171,7 +180,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
             ) : null}
           </main>
 
-          <aside className="space-y-6">
+          <aside className="space-y-6 animate-fade-in-up delay-200">
             <StatisticsPanel statistics={statistics} />
             <ModeSelector
               currentMode={quizMode}
@@ -180,16 +189,22 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                 isCompleted && (progress?.wrongQuestionIds.length ?? 0) > 0
               }
             />
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-              <h3 className="font-medium text-gray-900 mb-3">Actions</h3>
+            <div className="glass-panel rounded-2xl border border-slate-100/80 p-5 shadow-xs">
+              <h3 className="font-bold text-slate-800 text-sm mb-3.5 flex items-center gap-1.5 uppercase tracking-wider text-xs">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4.5 w-4.5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+                Control Center
+              </h3>
               <Button
                 onClick={resetQuiz}
                 variant="outline"
                 fullWidth
+                className="group border-slate-200"
                 icon={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-4.5 w-4.5 group-hover:rotate-45 transition-transform duration-300"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -201,7 +216,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
                   </svg>
                 }
               >
-                Restart Quiz
+                Reset Progress
               </Button>
             </div>
           </aside>

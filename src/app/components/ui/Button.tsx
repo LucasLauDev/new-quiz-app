@@ -30,25 +30,25 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   // Base classes
-  const baseClasses = 'rounded-md font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer';
+  const baseClasses = 'font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-xs hover:shadow-md active:scale-[0.98] outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2';
   
   // Size classes
   const sizeClasses = {
-    sm: 'text-sm py-1 px-3',
-    md: 'text-base py-2 px-4',
-    lg: 'text-lg py-3 px-6',
+    sm: 'text-xs py-2 px-4 rounded-lg',
+    md: 'text-sm py-2.5 px-5 rounded-xl',
+    lg: 'text-base py-3.5 px-7 rounded-2xl',
   };
   
   // Variant classes
   const variantClasses = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white',
-    secondary: 'bg-gray-600 hover:bg-gray-700 text-white',
-    outline: 'border border-gray-300 hover:bg-gray-100 text-gray-800',
-    danger: 'bg-red-600 hover:bg-red-700 text-white',
+    primary: 'bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white focus-visible:ring-blue-500',
+    secondary: 'bg-slate-700 hover:bg-slate-800 text-white focus-visible:ring-slate-600',
+    outline: 'border border-slate-200 bg-white/60 backdrop-blur-xs hover:bg-slate-50 text-slate-700 hover:text-slate-900 focus-visible:ring-slate-300',
+    danger: 'bg-linear-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white focus-visible:ring-rose-500',
   };
   
   // Disabled classes
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+  const disabledClasses = disabled ? 'opacity-40 cursor-not-allowed active:scale-100 shadow-none hover:shadow-none' : '';
   
   // Width classes
   const widthClasses = fullWidth ? 'w-full' : '';
@@ -60,8 +60,8 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${disabledClasses} ${widthClasses} ${className}`}
     >
-      {icon && <span className="flex-shrink-0">{icon}</span>}
-      {children}
+      {icon && <span className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">{icon}</span>}
+      <span>{children}</span>
     </button>
   );
 };

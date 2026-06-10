@@ -43,26 +43,30 @@ export const ModeSelector: React.FC<ModeSelectorProps> = ({
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-200/80 overflow-hidden">
-      <div className="p-5 border-b border-gray-200/80">
-        <h3 className="font-semibold text-gray-800 text-lg">Quiz Mode</h3>
+    <div className="glass-panel rounded-2xl shadow-xs border border-slate-100/80 overflow-hidden">
+      <div className="p-5 border-b border-slate-100/80">
+        <h3 className="font-bold text-slate-800 text-base font-display">Quiz Mode</h3>
       </div>
       
       <div className="p-5">
-        <div className="flex flex-col space-y-2">
-          {modes.map(mode => (
-            <button
-              key={mode.id}
-              onClick={() => onModeChange(mode.id)}
-              className={`px-4 py-2.5 rounded-lg flex items-center text-left font-medium transition-all duration-200 ${currentMode === mode.id
-                ? 'bg-blue-500 text-white shadow-md'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {mode.icon}
-              {mode.label}
-            </button>
-          ))}
+        <div className="flex flex-col gap-2">
+          {modes.map(mode => {
+            const isActive = currentMode === mode.id;
+            return (
+              <button
+                key={mode.id}
+                onClick={() => onModeChange(mode.id)}
+                className={`px-4 py-3.5 rounded-xl flex items-center text-left font-bold text-xs uppercase tracking-wider transition-all duration-200 outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                  isActive
+                    ? 'bg-linear-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-indigo-100/60 scale-[1.01]'
+                    : 'bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-800 border border-slate-200/40 hover:scale-[1.005]'
+                }`}
+              >
+                <span className={`transition-transform duration-200 ${isActive ? 'scale-110' : 'opacity-85'}`}>{mode.icon}</span>
+                <span>{mode.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

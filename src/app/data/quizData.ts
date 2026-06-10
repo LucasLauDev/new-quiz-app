@@ -158,6 +158,12 @@ export const quizCategories: QuizCategory[] = [
       },
     ],
   },
+  {
+    id: "system-admin",
+    name: "System Administration",
+    lecturer: "Mohammed Zahir",
+    subcategories: [],
+  },
 ];
 
 /**
@@ -185,7 +191,7 @@ export const quizzes: Quiz[] = [
   wirelessTopic2,
   wirelessTopic3,
   wirelessTopic3GPT,
-  wirelessTopic4
+  wirelessTopic4,
 ];
 
 /**
@@ -214,11 +220,11 @@ export const getQuizzesByCategory = (categoryId: string): Quiz[] => {
  */
 export const getQuizzesBySubcategory = (
   categoryId: string,
-  subcategoryId: string
+  subcategoryId: string,
 ): Quiz[] => {
   return quizzes.filter(
     (quiz) =>
-      quiz.categoryId === categoryId && quiz.subcategoryId === subcategoryId
+      quiz.categoryId === categoryId && quiz.subcategoryId === subcategoryId,
   );
 };
 
