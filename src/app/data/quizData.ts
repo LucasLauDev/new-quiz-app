@@ -16,6 +16,7 @@ import { pembinaanPeradaban } from "./pembinaan-peradaban";
 import { persekutuan } from "./persekutuan";
 import { QWTopik3 } from "./qwen-3";
 import { sysadminTopic1 } from "./system_admin/topic-1";
+import { sysadminTopic2 } from "./system_admin/topic-2";
 import { tanggungjawabSosial } from "./tanggungjawab";
 import { tokohFalsafah } from "./tokoh-falsafah";
 import { wirelessTopic1 } from "./wireless/topic-1";
@@ -169,6 +170,11 @@ export const quizCategories: QuizCategory[] = [
         name: "Topic 1 - Introduction to System Administration",
         quizId: "sysadmin-topic-1",
       },
+      {
+        id: "sysadmin-topic-2",
+        name: "Topic 2 - Computer and Network Components",
+        quizId: "sysadmin-topic-2",
+      },
     ],
   },
 ];
@@ -200,6 +206,7 @@ export const quizzes: Quiz[] = [
   wirelessTopic3GPT,
   wirelessTopic4,
   sysadminTopic1,
+  sysadminTopic2,
 ];
 
 /**
