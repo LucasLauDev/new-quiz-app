@@ -15,6 +15,7 @@ import { metafizik } from "./metafizik";
 import { pembinaanPeradaban } from "./pembinaan-peradaban";
 import { persekutuan } from "./persekutuan";
 import { QWTopik3 } from "./qwen-3";
+import { sysadminTopic1 } from "./system_admin/topic-1";
 import { tanggungjawabSosial } from "./tanggungjawab";
 import { tokohFalsafah } from "./tokoh-falsafah";
 import { wirelessTopic1 } from "./wireless/topic-1";
@@ -162,7 +163,13 @@ export const quizCategories: QuizCategory[] = [
     id: "system-admin",
     name: "System Administration",
     lecturer: "Mohammed Zahir",
-    subcategories: [],
+    subcategories: [
+      {
+        id: "sysadmin-topic-1",
+        name: "Topic 1 - Introduction to System Administration",
+        quizId: "sysadmin-topic-1",
+      },
+    ],
   },
 ];
 
@@ -192,6 +199,7 @@ export const quizzes: Quiz[] = [
   wirelessTopic3,
   wirelessTopic3GPT,
   wirelessTopic4,
+  sysadminTopic1,
 ];
 
 /**
