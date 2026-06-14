@@ -20,322 +20,484 @@ export const sysadminTopic1: Quiz = {
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q1",
-      text: "Which of the following correctly describes the definition and nature of a System Administrator?",
+      text: "Scenario: A multinational corporation is opening a new regional office. The IT department is tasked with preparing the digital workspace for 50 new employees. Which of the following actions correctly demonstrate the system administrator's task of 'Installing and configuring software'? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "A single trusted person responsible to administrate the whole system.",
+          text: "Deploying the authorized corporate operating system image onto the new laptops.",
         },
         {
           id: "b",
-          text: "A person responsible for the upkeep, configuration, and reliable operation of computer systems.",
+          text: "Setting up the physical desks and running power cables.",
         },
         {
           id: "c",
-          text: "A user who develops business application logic from scratch.",
+          text: "Loading the required productivity applications and ensuring they connect to the local server.",
         },
         {
           id: "d",
-          text: "A user known as the root user in a UNIX environment who holds absolute power to the system.",
+          text: "Designing a completely new custom database application from scratch.",
+        },
+        {
+          id: "e",
+          text: "Applying necessary initial license keys to the installed programs.",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["a", "c", "e"],
       explanation: {
         correct:
-          "Options A, B, and D are correct. A System Administrator is defined as a single trusted person responsible for the upkeep, configuration, and reliable operation of systems, and is known as the root user with absolute power in UNIX.",
+          "Options A, C, and E are correct. Installing and configuring software involves loading operating systems, productivity applications, and applying licenses. Option B is a physical facility task, and Option D is a software development task, not standard system administration[cite: 3].",
         incorrect: {
-          c: "Incorrect. Developing business application logic is the role of a software developer, not a system administrator.",
+          b: "Incorrect — Setting up physical desks is a facilities or general IT support task, not software installation.",
+          d: "Incorrect — System administrators configure existing software; they do not typically program new software from scratch.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q2",
-      text: "What are the specific characteristics of the 'root' user login in a system administration environment?",
+      text: "Scenario: The Human Resources department notifies the IT team that a senior manager is resigning, and three new interns are joining the marketing team on Monday. How should the system administrator apply the 'Managing user accounts' task? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "The default user ID is 1.",
+          text: "Creating new login credentials and setting up initial passwords for the three interns.",
         },
         {
           id: "b",
-          text: "The default user ID is 0 (zero).",
+          text: "Deleting or disabling the exiting senior manager's account to prevent unauthorized access.",
         },
         {
           id: "c",
-          text: "The prompt '#' indicates login as root.",
+          text: "Assigning the interns to the appropriate user groups with restricted marketing access.",
         },
         {
           id: "d",
-          text: "The command 'pwd' outputs '\\' to indicate the root directory.",
-        },
-        {
-          id: "e",
-          text: "The command 'pwd' outputs '/' to indicate the root directory.",
+          text: "Reading the senior manager's personal emails before they leave.",
         },
       ],
-      correctOptionIds: ["b", "c", "e"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
         correct:
-          "Options B, C, and E are correct. The root user ID is 0, the '#' prompt indicates root login, and 'pwd' outputs '/' for the root directory.",
+          "Options A, B, and C are correct. Managing user accounts includes adding new users (interns), removing or disabling exiting users (manager), and configuring their access levels[cite: 4, 17].",
         incorrect: {
-          a: "Incorrect. The default user ID for root is 0, not 1.",
-          d: "Incorrect. The output for the root directory is a forward slash '/', not a backslash '\\'.",
+          d: "Incorrect — While admins have high privileges, reading personal emails without legal/HR directive violates ethical conduct and is not a routine account management task.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q3",
-      text: "Which of the following statements reflect the philosophy of System Administration?",
+      text: "Scenario: During the end-of-month financial closing, the accounting department complains that the enterprise database is responding extremely slowly, causing delays in generating reports. Which actions fall under 'Monitoring system performance'? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It involves the design, installation, configuration, operation, and support of servers to support IT infrastructure needs.",
+          text: "Checking the CPU and RAM utilization on the database server.",
         },
         {
           id: "b",
-          text: "It generally involves planning, installing, and maintaining computer systems.",
+          text: "Buying brand new servers immediately to replace the slow ones.",
         },
         {
           id: "c",
-          text: "It focuses on maximizing hardware manufacturing efficiency for cost reduction.",
+          text: "Analyzing network traffic to see if there is a bottleneck slowing down database queries.",
         },
         {
           id: "d",
-          text: "It involves servers and clients working together in a network environment using operating systems like Windows 2008 Server or Linux.",
+          text: "Reviewing system logs to identify any background processes consuming excessive resources.",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["a", "c", "d"],
       explanation: {
         correct:
-          "Options A, B, and D correctly state the philosophy of system administration as outlined in the text.",
+          "Options A, C, and D are correct. Monitoring performance involves checking resource utilization (CPU/RAM), analyzing network traffic, and reviewing logs to diagnose slowness[cite: 5].",
         incorrect: {
-          c: "Incorrect. Hardware manufacturing is completely outside the philosophy and scope of system administration.",
+          b: "Incorrect — Buying new servers is a procurement decision, not a monitoring task. Monitoring must happen first to identify the root cause.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q4",
-      text: "Which of the following are listed as specific tasks of a System Administrator? (Part 1)",
+      text: "Scenario: A severe storm causes a massive power surge that damages several hard drives in the company's main data center. To recover the lost financial data, what 'Implementing data backup and recovery' actions must the sysadmin have performed or be doing? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Installing and configuring software.",
+          text: "Restoring the accounting databases from the offsite backup server.",
         },
         {
           id: "b",
-          text: "Managing user accounts.",
+          text: "Having routinely scheduled automated backups of critical files prior to the storm.",
         },
         {
           id: "c",
-          text: "Developing new operating systems.",
+          text: "Replacing the damaged physical hard drives with new ones.",
         },
         {
           id: "d",
-          text: "Monitoring system performance.",
+          text: "Ensuring the restored data is verified for integrity and completeness.",
         },
       ],
       correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, B, and D are direct tasks of a system administrator.",
+          "Options A, B, and D are correct. Backup and recovery involve creating routine backups, restoring data after a failure, and verifying the restoration[cite: 6, 15].",
         incorrect: {
-          c: "Incorrect. Developing new operating systems is a software engineering task, not a typical system administrator task.",
+          c: "Incorrect — Replacing the physical hard drives is a hardware replacement task, not the software/data aspect of 'backup and recovery'.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q5",
-      text: "Which of the following are listed as specific tasks of a System Administrator? (Part 2)",
+      text: "Scenario: Following a news report about a global ransomware attack exploiting an old software vulnerability, the IT director orders the team to secure the company's perimeter. Which actions align with 'Ensuring security with updates and firewalls'? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Implementing data backup and recovery.",
+          text: "Applying the latest security patches provided by the operating system vendor.",
         },
         {
           id: "b",
-          text: "Ensuring security with updates and firewalls.",
+          text: "Configuring the perimeter firewall to block traffic from known malicious IP addresses.",
         },
         {
           id: "c",
-          text: "Configuring network devices.",
+          text: "Disabling the antivirus software to improve server speed.",
         },
         {
           id: "d",
-          text: "Auditing financial statements for the IT department.",
+          text: "Reviewing and updating firewall rules to close unnecessary open ports.",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, B, and C are direct tasks of a system administrator.",
+          "Options A, B, and D are correct. Ensuring security involves applying OS patches and actively managing firewall rules to block unauthorized traffic[cite: 7, 16].",
         incorrect: {
-          d: "Incorrect. Financial auditing is an accounting role, not a system administrator task.",
+          c: "Incorrect — Disabling antivirus reduces security and directly contradicts the goal of ensuring security.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q6",
-      text: "What are the remaining specific tasks of a System Administrator mentioned in the text? (Part 3)",
+      text: "Scenario: A university is building a new laboratory complex and requires local area network (LAN) access in all rooms. What tasks does the system administrator perform under 'Configuring network devices'? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Troubleshooting issues.",
+          text: "Setting up the IP routing tables on the new network routers.",
         },
         {
           id: "b",
-          text: "Keeping detailed documentation.",
+          text: "Configuring the network switches to assign appropriate VLANs to the laboratory computers.",
         },
         {
           id: "c",
-          text: "Creating physical marketing materials.",
+          text: "Manufacturing the ethernet cables from raw materials.",
         },
         {
           id: "d",
-          text: "Training and/or supervising staff.",
+          text: "Assigning static IP addresses to the lab's network-attached printers.",
         },
       ],
       correctOptionIds: ["a", "b", "d"],
       explanation: {
-        correct: "Options A, B, and D are correct tasks.",
+        correct:
+          "Options A, B, and D are correct. Configuring network devices involves setting up routers, configuring switches/VLANs, and assigning IP addresses to devices[cite: 8].",
         incorrect: {
-          c: "Incorrect. Creating marketing materials is irrelevant to system administration.",
+          c: "Incorrect — Manufacturing cables is a physical production task, not a network configuration task.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q7",
-      text: "What are the main roles of an administrator regarding systems and software?",
+      text: "Scenario: A remote worker calls the IT helpdesk stating their VPN connection drops exactly every 15 minutes, preventing them from accessing corporate files. Which actions reflect the administrator's 'Troubleshooting issues' role? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Install, support, and maintain servers or computer systems.",
+          text: "Asking the user questions to identify patterns and duplicate the problem.",
         },
         {
           id: "b",
-          text: "Install and configure new hardware and software.",
+          text: "Telling the user to simply use a different computer without investigating.",
         },
         {
           id: "c",
-          text: "Perform routine audits of systems and software.",
+          text: "Analyzing the VPN server logs to find out why the session is terminating.",
         },
         {
           id: "d",
-          text: "Design custom microchips for server hardware.",
+          text: "Testing different network configurations to isolate the root cause.",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "c", "d"],
       explanation: {
         correct:
-          "Options A, B, and C correctly list the roles of an administrator regarding maintaining systems and software.",
+          "Options A, C, and D are correct. Troubleshooting involves identifying the problem through user questioning, analyzing logs, and isolating the root cause[cite: 9, 36].",
         incorrect: {
-          d: "Incorrect. Designing microchips is hardware engineering, not a system administration role.",
+          b: "Incorrect — Ignoring the problem and telling the user to switch computers is not troubleshooting.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q8",
-      text: "What are the main roles of an administrator regarding maintenance and users?",
+      text: "Scenario: An external auditor arrives to verify that the company complies with industry data security standards. They request proof of how servers are managed. How does 'Keeping detailed documentation' help the system administrator in this scenario? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Perform backups and restores.",
+          text: "By providing logs of when security patches were applied to the servers.",
         },
         {
           id: "b",
-          text: "Apply OS updates, patches, and configuration changes.",
+          text: "By presenting written records of user account creation and removal procedures.",
         },
         {
           id: "c",
-          text: "Manage user accounts, including adding, removing, and resetting passwords.",
+          text: "By showing the physical server hardware to the auditor.",
         },
         {
           id: "d",
-          text: "Determine the legal hiring policies for the organization.",
+          text: "By providing up-to-date network topology diagrams and configuration records.",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, B, and C accurately list the maintenance and user-centric roles of an administrator.",
+          "Options A, B, and D are correct. Detailed documentation includes maintaining records of patches, user account management procedures, and network diagrams[cite: 10, 40].",
         incorrect: {
-          d: "Incorrect. Determining legal hiring policies is an HR function, not a system administrator role.",
+          c: "Incorrect — Showing physical hardware does not constitute 'detailed documentation'.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q9",
-      text: "Which of the following correctly describes an Administrator's Privileges regarding files and processes?",
+      text: "Scenario: A healthcare provider requires strict compliance with patient data privacy. The IT manager assigns a system administrator to conduct 'Routine audits of systems and software'. What activities does this involve? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Modify the contents or attributes of any files, although owned by other users.",
+          text: "Reviewing system logs to ensure no unauthorized access to patient records has occurred.",
         },
         {
           id: "b",
-          text: "Modify the contents of files only if they are the direct owner of those files.",
+          text: "Checking that all installed medical software is currently supported and patched.",
         },
         {
           id: "c",
-          text: "Initiate or kill any process except those essential for running the system.",
+          text: "Verifying that user permissions align with the principle of least privilege.",
         },
         {
           id: "d",
-          text: "Initiate or kill any process including those essential for running the system.",
+          text: "Upgrading the RAM modules in all workstation computers.",
         },
       ],
-      correctOptionIds: ["a", "c"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
         correct:
-          "Options A and C are correct. Administrators can modify files owned by others and can kill processes, except essential system processes.",
+          "Options A, B, and C are correct. Routine audits involve reviewing logs for unauthorized access, checking software patch status, and verifying user permissions[cite: 14].",
         incorrect: {
-          b: "Incorrect. Administrators can modify any files, regardless of ownership.",
-          d: "Incorrect. They should not kill processes essential for running the system.",
+          d: "Incorrect — Upgrading RAM is a hardware installation/upgrade task, not an audit.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q10",
-      text: "Which of the following correctly describes an Administrator's Privileges regarding users and system settings?",
+      text: "Scenario: An employee is unexpectedly hospitalized, and the finance director urgently needs a crucial budget spreadsheet located in the hospitalized employee's private, restricted home directory on the server. Utilizing 'Administrator's Privileges', how can the sysadmin assist? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Change any user's password without entering the old password.",
+          text: "By waiting for the employee to wake up and provide their password.",
         },
         {
           id: "b",
-          text: "Change any user's password only by verifying the old password first.",
+          text: "By modifying the attributes of the file to allow the finance director access, even though it is owned by the hospitalized user.",
         },
         {
           id: "c",
-          text: "Set the system clock.",
+          text: "By copying the contents of the file and giving it to the finance director.",
         },
         {
           id: "d",
-          text: "Control user's access to Scheduling service and Networking service.",
+          text: "By deleting the file entirely from the system.",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A, C, and D are correct privileges of an administrator.",
+          "Options B and C are correct. An administrator has the privilege to modify the contents or attributes of any file, even if it is owned by another user[cite: 19].",
         incorrect: {
-          b: "Incorrect. Administrators do not need the old password to change a user's password.",
+          a: "Incorrect — Waiting defeats the purpose of the urgent request and ignores the admin's privileges.",
+          d: "Incorrect — While an admin *could* delete it, doing so destroys the needed budget spreadsheet and does not assist the finance director.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q11",
-      text: "Which of the following are recognized Categories of System Administration? (Part 1)",
+      text: "Scenario: A poorly written custom reporting script enters an infinite loop, consuming 100% of the main server's CPU and freezing all other applications. Applying 'Administrator's Privileges', what is the appropriate action? (Select all that apply)",
+      options: [
+        {
+          id: "a",
+          text: "Initiating a server shutdown by pulling the power plug.",
+        },
+        {
+          id: "b",
+          text: "Using administrative tools to forcefully kill the runaway script process.",
+        },
+        {
+          id: "c",
+          text: "Killing essential operating system processes to free up memory for the script.",
+        },
+        {
+          id: "d",
+          text: "Identifying the specific process ID (PID) of the script and terminating it without affecting essential system functions.",
+        },
+      ],
+      correctOptionIds: ["b", "d"],
+      explanation: {
+        correct:
+          "Options B and D are correct. Administrators have the privilege to initiate or kill any process, except those essential for running the system[cite: 20].",
+        incorrect: {
+          a: "Incorrect — Pulling the power plug causes improper shutdown and potential data corruption.",
+          c: "Incorrect — Administrators must avoid killing processes essential for running the system.",
+        },
+      },
+    },
+    {
+      type: QuestionType.MULTIPLE_SELECT,
+      id: "ms-q12",
+      text: "Scenario: A user returns from a month-long vacation and realizes they have completely forgotten their domain login password. They cannot log in to change it. Based on 'Administrator's Privileges', how is this resolved? (Select all that apply)",
+      options: [
+        {
+          id: "a",
+          text: "The administrator demands the user's old password to process the change.",
+        },
+        {
+          id: "b",
+          text: "The administrator changes the user's password directly without needing to enter the old password.",
+        },
+        {
+          id: "c",
+          text: "The administrator creates a completely new user account and deletes the old one.",
+        },
+        {
+          id: "d",
+          text: "The administrator generates a temporary password and forces the user to reset it upon next login.",
+        },
+      ],
+      correctOptionIds: ["b", "d"],
+      explanation: {
+        correct:
+          "Options B and D are correct. An administrator has the specific privilege to change any user's password without entering the old password[cite: 21]. Providing a temporary password for forced reset is standard practice.",
+        incorrect: {
+          a: "Incorrect — The administrator does not need the old password.",
+          c: "Incorrect — Deleting the account would destroy the user's files and access history unnecessarily.",
+        },
+      },
+    },
+    {
+      type: QuestionType.MULTIPLE_SELECT,
+      id: "ms-q13",
+      text: "Scenario: A financial trading firm relies on split-second transaction logging. An audit reveals that Server A's timestamps are 3 minutes behind Server B's. Which specific 'Administrator's Privilege' must be used to fix this discrepancy? (Select all that apply)",
+      options: [
+        {
+          id: "a",
+          text: "Modify the contents of the log files.",
+        },
+        {
+          id: "b",
+          text: "Set the system clock on Server A.",
+        },
+        {
+          id: "c",
+          text: "Kill the logging process.",
+        },
+        {
+          id: "d",
+          text: "Configure the server to synchronize its time with a reliable Network Time Protocol (NTP) server.",
+        },
+      ],
+      correctOptionIds: ["b", "d"],
+      explanation: {
+        correct:
+          "Options B and D are correct. The administrator has the privilege to 'Set the system clock'[cite: 22], which is practically done manually or by configuring an NTP sync.",
+        incorrect: {
+          a: "Incorrect — Falsifying log contents does not fix the root cause of the desynchronized servers.",
+          c: "Incorrect — Killing the logging process stops recording entirely, making the situation worse.",
+        },
+      },
+    },
+    {
+      type: QuestionType.MULTIPLE_SELECT,
+      id: "ms-q14",
+      text: "Scenario: The company network is slowing down because guest users in the lobby are streaming high-definition videos. Furthermore, massive data reports are running during peak office hours instead of at night. Which 'Administrator's Privileges' allow the sysadmin to resolve these specific issues? (Select all that apply)",
+      options: [
+        {
+          id: "a",
+          text: "Controlling user's access to the Networking service to restrict guest bandwidth.",
+        },
+        {
+          id: "b",
+          text: "Changing the guest users' personal passwords.",
+        },
+        {
+          id: "c",
+          text: "Controlling user's access to the Scheduling service to force data reports to run at midnight.",
+        },
+        {
+          id: "d",
+          text: "Setting the system clock forward to trick the reports into running.",
+        },
+      ],
+      correctOptionIds: ["a", "c"],
+      explanation: {
+        correct:
+          "Options A and C are correct. The administrator has privileges to control user access to Networking services (to handle guest streaming) and Scheduling services (to delay reports until night)[cite: 23].",
+        incorrect: {
+          b: "Incorrect — Changing passwords doesn't directly solve bandwidth management for open guest networks.",
+          d: "Incorrect — Setting the system clock inaccurately creates severe logging and authentication issues.",
+        },
+      },
+    },
+    {
+      type: QuestionType.MULTIPLE_SELECT,
+      id: "ms-q15",
+      text: "Scenario: An enterprise relies heavily on Oracle and SQL servers to manage massive amounts of customer transaction records. They need to hire an IT professional specifically focused on organizing, securing, and optimizing these tables and queries. Which 'Category of System Administration' fits this role? (Select all that apply)",
+      options: [
+        {
+          id: "a",
+          text: "Network Administrator",
+        },
+        {
+          id: "b",
+          text: "Database Administrator (DBA)",
+        },
+        {
+          id: "c",
+          text: "Web Administrator",
+        },
+        {
+          id: "d",
+          text: "Technical Support",
+        },
+      ],
+      correctOptionIds: ["b"],
+      explanation: {
+        correct:
+          "Option B is correct. A Database Administrator (DBA) is a category of system administration specifically focused on managing database systems[cite: 26].",
+        incorrect: {
+          a: "Incorrect — Network Admins focus on routers, switches, and connectivity.",
+          c: "Incorrect — Web Admins focus on web servers and websites.",
+          d: "Incorrect — Technical Support focuses on end-user assistance.",
+        },
+      },
+    },
+    {
+      type: QuestionType.MULTIPLE_SELECT,
+      id: "ms-q16",
+      text: "Scenario: A media company expects a massive surge in traffic to their news portal during election night. They need a specialist to configure the Apache and Nginx servers to balance the load and prevent the site from crashing. Which 'Category of System Administration' is this? (Select all that apply)",
       options: [
         {
           id: "a",
@@ -347,29 +509,32 @@ export const sysadminTopic1: Quiz = {
         },
         {
           id: "c",
-          text: "Network Administrator",
+          text: "Security Administrator",
         },
         {
           id: "d",
-          text: "Facility Administrator",
+          text: "Network Administrator",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["b"],
       explanation: {
-        correct: "Options A, B, and C are valid categories listed in the text.",
+        correct:
+          "Option B is correct. A Web Administrator focuses on maintaining and configuring web servers to handle website traffic and performance[cite: 27].",
         incorrect: {
-          d: "Incorrect. Facility Administrator handles physical buildings, not system administration.",
+          a: "Incorrect — DBAs focus on databases.",
+          c: "Incorrect — Security Admins focus primarily on cyber threats and policies.",
+          d: "Incorrect — Network Admins focus on the broader network infrastructure.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q12",
-      text: "Which of the following are recognized Categories of System Administration? (Part 2)",
+      id: "ms-q17",
+      text: "Scenario: A global logistics company is experiencing connectivity drops between its warehouses in Asia and Europe. They need an IT professional to troubleshoot the wide area network (WAN) links, configure Cisco routers, and manage IP routing protocols. Which 'Category of System Administration' is appropriate? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Security Administrator",
+          text: "Web Administrator",
         },
         {
           id: "b",
@@ -377,973 +542,751 @@ export const sysadminTopic1: Quiz = {
         },
         {
           id: "c",
-          text: "Computer Operator",
+          text: "Network Administrator",
         },
         {
           id: "d",
-          text: "Social Media Administrator",
+          text: "Security Administrator",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
-      explanation: {
-        correct: "Options A, B, and C are valid categories listed in the text.",
-        incorrect: {
-          d: "Incorrect. Social Media Administrator is a marketing/communications role.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q13",
-      text: "How is 'Hardware' defined as a component of a computer system in the text?",
-      options: [
-        {
-          id: "a",
-          text: "The human element involved in computing.",
-        },
-        {
-          id: "b",
-          text: "The physical components of a computer.",
-        },
-        {
-          id: "c",
-          text: "Examples include CPU, memory, storage devices, and peripherals.",
-        },
-        {
-          id: "d",
-          text: "The programs and operating systems that run the computer.",
-        },
-      ],
-      correctOptionIds: ["b", "c"],
+      correctOptionIds: ["c"],
       explanation: {
         correct:
-          "Options B and C correctly define hardware and provide the examples given in the text.",
+          "Option C is correct. A Network Administrator manages the network connectivity, routers, switches, and WAN links[cite: 28].",
         incorrect: {
-          a: "Incorrect. This defines Warmware.",
-          d: "Incorrect. This defines Software.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q14",
-      text: "How is 'Warmware' defined as a component of a computer system in the text?",
-      options: [
-        {
-          id: "a",
-          text: "The programs and operating systems that run on the hardware.",
-        },
-        {
-          id: "b",
-          text: "Often refers to the human element involved in computing.",
-        },
-        {
-          id: "c",
-          text: "Includes users, administrators, and IT staff who interact with and manage hardware and software.",
-        },
-        {
-          id: "d",
-          text: "The thermal management system of a server rack.",
-        },
-      ],
-      correctOptionIds: ["b", "c"],
-      explanation: {
-        correct:
-          "Options B and C correctly define Warmware as the human element in computing.",
-        incorrect: {
-          a: "Incorrect. This defines Software.",
-          d: "Incorrect. This is a fabricated distractor related to temperature.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q15",
-      text: "How is 'Software' defined as a component of a computer system in the text?",
-      options: [
-        {
-          id: "a",
-          text: "The programs and operating systems that run on the hardware.",
-        },
-        {
-          id: "b",
-          text: "It enables the hardware to perform tasks and execute commands.",
-        },
-        {
-          id: "c",
-          text: "The physical components such as memory and storage devices.",
-        },
-        {
-          id: "d",
-          text: "The people who interact with the hardware.",
-        },
-      ],
-      correctOptionIds: ["a", "b"],
-      explanation: {
-        correct:
-          "Options A and B correctly define software according to the text.",
-        incorrect: {
-          c: "Incorrect. This defines Hardware.",
-          d: "Incorrect. This defines Warmware.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q16",
-      text: "What does 'Technical Proficiency' entail for an Administrator's Required Skills?",
-      options: [
-        {
-          id: "a",
-          text: "Knowledge of operating systems (e.g., Windows, Linux).",
-        },
-        {
-          id: "b",
-          text: "Understanding of networking concepts (e.g., TCP/IP, DNS, DHCP).",
-        },
-        {
-          id: "c",
-          text: "Familiarity with hardware and software installation and configuration.",
-        },
-        {
-          id: "d",
-          text: "Ability to communicate technical information to non-technical users.",
-        },
-      ],
-      correctOptionIds: ["a", "b", "c"],
-      explanation: {
-        correct:
-          "Options A, B, and C specifically fall under Technical Proficiency.",
-        incorrect: {
-          d: "Incorrect. This is part of Communication Skills, not Technical Proficiency.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q17",
-      text: "What does 'Problem-Solving Skills' entail for an Administrator's Required Skills?",
-      options: [
-        {
-          id: "a",
-          text: "Ability to diagnose and troubleshoot system and network issues.",
-        },
-        {
-          id: "b",
-          text: "Analytical thinking to resolve complex technical problems.",
-        },
-        {
-          id: "c",
-          text: "Understanding of cybersecurity principles.",
-        },
-        {
-          id: "d",
-          text: "Writing scripts in Python or PowerShell.",
-        },
-      ],
-      correctOptionIds: ["a", "b"],
-      explanation: {
-        correct:
-          "Options A and B specifically describe Problem-Solving Skills.",
-        incorrect: {
-          c: "Incorrect. This falls under Security Awareness.",
-          d: "Incorrect. This falls under Automation and Scripting.",
+          a: "Incorrect — Web Admins handle web servers.",
+          b: "Incorrect — Technical Support handles end-user device issues.",
+          d: "Incorrect — Security Admins focus on firewalls and threat prevention, not standard WAN routing.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q18",
-      text: "What does 'Security Awareness' entail for an Administrator's Required Skills?",
+      text: "Scenario: A government agency mandates that all IT infrastructure must be audited for vulnerabilities, intrusion detection systems must be deployed, and strict firewall policies enforced to protect classified data. Which 'Category of System Administration' is dedicated to this? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Understanding of cybersecurity principles and practices.",
+          text: "Database Administrator (DBA)",
         },
         {
           id: "b",
-          text: "Ability to implement and manage security measures like firewalls and encryption.",
+          text: "Security Administrator",
         },
         {
           id: "c",
-          text: "Ability to prioritize tasks.",
+          text: "Network Administrator",
         },
         {
           id: "d",
-          text: "Experience with configuration management tools.",
+          text: "Technical Support",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["b"],
       explanation: {
-        correct: "Options A and B specifically describe Security Awareness.",
+        correct:
+          "Option B is correct. A Security Administrator specializes in overseeing firewall policies, detecting intrusions, and maintaining overall cybersecurity[cite: 29].",
         incorrect: {
-          c: "Incorrect. This is Time Management.",
-          d: "Incorrect. This is Automation and Scripting.",
+          a: "Incorrect — DBAs manage databases.",
+          c: "Incorrect — Network Admins manage connectivity, though they collaborate with security.",
+          d: "Incorrect — Tech support handles general end-user issues.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q19",
-      text: "What do 'Automation and Scripting' and 'Programming Skills' entail for an Administrator?",
+      text: "Scenario: A company is upgrading its data center. They are purchasing new motherboards, upgrading memory modules, and adding solid-state drives (SSDs). According to the 'Components of a Computer System', which category do these items belong to? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Proficiency in scripting languages like Python or PowerShell for task automation.",
+          text: "Warmware",
         },
         {
           id: "b",
-          text: "Experience with configuration management tools like Ansible or Puppet.",
+          text: "Hardware",
         },
         {
           id: "c",
-          text: "Knowledge of programming languages like Bash or JavaScript.",
+          text: "Software",
         },
         {
           id: "d",
-          text: "Ability to write scripts and develop tools to automate and streamline administration tasks.",
-        },
-        {
-          id: "e",
-          text: "Ability to write end-user commercial software.",
+          text: "Physical components of a computer",
         },
       ],
-      correctOptionIds: ["a", "b", "c", "d"],
+      correctOptionIds: ["b", "d"],
       explanation: {
         correct:
-          "Options A, B, C, and D are all accurate descriptions of Automation, Scripting, and Programming skills from the text.",
+          "Options B and D are correct. Hardware refers to the physical components of a computer, such as CPU, memory, storage devices, and motherboards[cite: 31].",
         incorrect: {
-          e: "Incorrect. Administrators write scripts to automate tasks, not commercial software for end-users.",
+          a: "Incorrect — Warmware refers to humans.",
+          c: "Incorrect — Software refers to programs and operating systems.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q20",
-      text: "What do 'Communication Skills' entail for an Administrator's Required Skills?",
+      text: "Scenario: After deploying a complex new Enterprise Resource Planning (ERP) system, the IT department conducts extensive training sessions for the administrative staff and end-users to ensure they can interact with the new interface efficiently. In the context of computer system components, what element is being managed here? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Ability to communicate technical information clearly to non-technical users.",
+          text: "Warmware",
         },
         {
           id: "b",
-          text: "Strong documentation skills to maintain detailed records.",
+          text: "The human element involved in computing",
         },
         {
           id: "c",
-          text: "Keeping technical details hidden from management.",
+          text: "Hardware",
         },
         {
           id: "d",
-          text: "Experience with project management.",
+          text: "Software algorithms",
         },
       ],
       correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Options A and B directly describe Communication Skills as listed in the text.",
+          "Options A and B are correct. Warmware refers specifically to the human element involved in computing, such as users, administrators, and IT staff who interact with the systems[cite: 32].",
         incorrect: {
-          c: "Incorrect. Communication implies sharing info clearly, not hiding it.",
-          d: "Incorrect. This falls under Time Management.",
+          c: "Incorrect — Hardware refers to physical machinery.",
+          d: "Incorrect — Software algorithms are programmatic instructions, not humans.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q21",
-      text: "What do 'Time Management' and 'Continuous Learning' entail for an Administrator?",
+      text: "Scenario: An IT manager is evaluating candidates for a SysAdmin position. One candidate successfully demonstrates their ability to configure a Linux operating system, troubleshoot DNS records, and install application packages. Which 'Administrator's Required Skill' does this best represent? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Ability to prioritize tasks and manage time effectively.",
+          text: "Communication Skills",
         },
         {
           id: "b",
-          text: "Experience with project management and scheduling.",
+          text: "Technical Proficiency",
         },
         {
           id: "c",
-          text: "Willingness to stay updated with the latest technologies and best practices.",
+          text: "Knowledge of operating systems and networking concepts",
         },
         {
           id: "d",
-          text: "Ability to adapt to new tools and systems quickly.",
-        },
-        {
-          id: "e",
-          text: "Sticking exclusively to legacy systems without changing workflows.",
+          text: "Time Management",
         },
       ],
-      correctOptionIds: ["a", "b", "c", "d"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A, B, C, and D accurately describe the traits of Time Management and Continuous Learning.",
+          "Options B and C are correct. Technical Proficiency includes knowledge of operating systems (Linux), networking concepts (DNS), and software installation[cite: 35].",
         incorrect: {
-          e: "Incorrect. This directly contradicts 'Continuous Learning' and adapting to new tools.",
+          a: "Incorrect — Communication skills involve explaining technical info to non-technical users.",
+          d: "Incorrect — Time management involves prioritizing tasks and scheduling.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q22",
-      text: "Which of the following describes the System Administrator Goal of 'Reliability'?",
+      text: "Scenario: A server cluster goes offline unexpectedly. The system administrator uses analytical thinking to trace the root cause back to a faulty memory module by systematically testing components. Which 'Administrator's Required Skill' is being utilized? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Ensuring that systems are consistently operational.",
+          text: "Problem-Solving Skills",
         },
         {
           id: "b",
-          text: "Ensuring that systems are consistently available for use.",
+          text: "Automation and Scripting",
         },
         {
           id: "c",
-          text: "Protecting data from unauthorized access.",
+          text: "Ability to diagnose and troubleshoot system issues",
         },
         {
           id: "d",
-          text: "Optimizing the performance of IT resources.",
+          text: "Security Awareness",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "c"],
       explanation: {
-        correct: "Options A and B define Reliability.",
+        correct:
+          "Options A and C are correct. Problem-solving skills involve the ability to diagnose, troubleshoot system issues, and use analytical thinking to resolve complex technical problems[cite: 36].",
         incorrect: {
-          c: "Incorrect. This defines Security.",
-          d: "Incorrect. This defines Efficiency.",
+          b: "Incorrect — Automation involves writing scripts for repetitive tasks, not diagnosing hardware failures.",
+          d: "Incorrect — Security awareness relates to cyber threats, not hardware component failures.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q23",
-      text: "Which of the following describes the System Administrator Goal of 'Security'?",
+      text: "Scenario: The Chief Information Officer (CIO) mandates that all company laptops must have their hard drives encrypted and local firewalls enabled to protect sensitive client data. Implementing this requires which 'Administrator's Required Skill'? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Protecting data and system resources from unauthorized access.",
+          text: "Security Awareness",
         },
         {
           id: "b",
-          text: "Protecting data and system resources from threats.",
+          text: "Ability to implement encryption and firewalls",
         },
         {
           id: "c",
-          text: "Minimizing service interruptions.",
+          text: "Programming Skills",
         },
         {
           id: "d",
-          text: "Handling diverse and complex systems.",
+          text: "Understanding of cybersecurity principles",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
-        correct: "Options A and B define the goal of Security.",
+        correct:
+          "Options A, B, and D are correct. Security Awareness includes understanding cybersecurity principles and the ability to implement security measures like firewalls and encryption[cite: 37].",
         incorrect: {
-          c: "Incorrect. Minimizing interruptions relates to the challenge of Downtime or the goal of Reliability.",
-          d: "Incorrect. This is the challenge of Complexity.",
+          c: "Incorrect — Programming involves writing code, not necessarily configuring standard encryption and firewalls.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q24",
-      text: "Which of the following describes the System Administrator Goal of 'Efficiency'?",
+      text: "Scenario: An IT team needs to deploy 500 identical virtual machines overnight. Instead of configuring each one manually, the administrator uses PowerShell and Ansible to deploy them simultaneously. Which 'Administrator's Required Skill' is demonstrated? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Optimizing the performance of IT resources.",
+          text: "Automation and Scripting",
         },
         {
           id: "b",
-          text: "Optimizing the utilization of IT resources.",
+          text: "Proficiency in scripting languages for task automation",
         },
         {
           id: "c",
-          text: "Ensuring systems are consistently operational.",
+          text: "Experience with configuration management tools",
         },
         {
           id: "d",
-          text: "Mitigating risks to protect against cyber attacks.",
+          text: "Communication Skills",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
-        correct: "Options A and B describe the goal of Efficiency.",
+        correct:
+          "Options A, B, and C are correct. Automation and Scripting involve using languages like PowerShell for task automation and utilizing configuration management tools like Ansible to streamline workloads[cite: 38].",
         incorrect: {
-          c: "Incorrect. This is Reliability.",
-          d: "Incorrect. This is the challenge of Security Threats.",
+          d: "Incorrect — Communication skills relate to conveying information, not automating virtual machine deployments.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q25",
-      text: "Which of the following accurately describes the System Administrator Challenge of 'Security Threats'?",
+      text: "Scenario: After a major network outage, the CEO (who has no IT background) demands an explanation. The sysadmin creates a clear, non-jargon report detailing what happened and writes comprehensive logs for the IT team's future reference. Which 'Administrator's Required Skill' is shown? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Managing vulnerabilities to protect against cyber-attacks.",
+          text: "Time Management",
         },
         {
           id: "b",
-          text: "Mitigating risks to protect against cyber-attacks.",
+          text: "Communication Skills",
         },
         {
           id: "c",
-          text: "Handling diverse and complex technologies.",
+          text: "Ability to communicate technical information clearly to non-technical users",
         },
         {
           id: "d",
-          text: "Quickly resolving any outages.",
+          text: "Strong documentation skills to maintain detailed records",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["b", "c", "d"],
       explanation: {
-        correct: "Options A and B define the challenge of Security Threats.",
+        correct:
+          "Options B, C, and D are correct. Communication Skills include the ability to translate technical info for non-technical users and strong documentation skills[cite: 40].",
         incorrect: {
-          c: "Incorrect. This is the challenge of Complexity.",
-          d: "Incorrect. This is the challenge of Downtime.",
+          a: "Incorrect — Time management relates to scheduling and prioritizing, not explaining technical issues.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q26",
-      text: "Which of the following accurately describes the System Administrator Challenge of 'Downtime'?",
+      text: "Scenario: On a Monday morning, a sysadmin receives 3 critical server-down alerts, 15 minor password reset requests, and has a scheduled software upgrade project. They organize their day to handle the server outages first, delegate the resets, and reschedule the upgrade. Which 'Administrator's Required Skill' is applied? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Minimizing service interruptions.",
+          text: "Time Management",
         },
         {
           id: "b",
-          text: "Quickly resolving any outages.",
+          text: "Ability to prioritize tasks",
         },
         {
           id: "c",
-          text: "Handling diverse technologies within an organization.",
+          text: "Managing time effectively",
         },
         {
           id: "d",
-          text: "Managing vulnerabilities.",
+          text: "Programming Skills",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
-        correct: "Options A and B define the challenge of Downtime.",
+        correct:
+          "Options A, B, and C are correct. Time Management is the ability to prioritize tasks, manage time effectively, and handle scheduling[cite: 41].",
         incorrect: {
-          c: "Incorrect. This is Complexity.",
-          d: "Incorrect. This is Security Threats.",
+          d: "Incorrect — Programming skills involve writing code, not managing daily task priorities.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q27",
-      text: "Which of the following accurately describes the System Administrator Challenge of 'Complexity'?",
+      text: "Scenario: A hospital's IT director states that the patient life-support monitoring systems must never experience an outage and must be constantly available to doctors. Which 'System Administrators Goal' is the director prioritizing? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Handling diverse systems within an organization.",
+          text: "Reliability",
         },
         {
           id: "b",
-          text: "Handling often complex technologies within an organization.",
+          text: "Security",
         },
         {
           id: "c",
-          text: "Mitigating risks to protect against cyber attacks.",
+          text: "Ensuring systems are consistently operational and available for use",
         },
         {
           id: "d",
-          text: "Optimizing the utilization of IT resources.",
+          text: "Efficiency",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "c"],
       explanation: {
-        correct: "Options A and B describe the challenge of Complexity.",
+        correct:
+          "Options A and C are correct. Reliability is defined as ensuring that systems are consistently operational and available for use, which is critical for life-support monitoring[cite: 43].",
         incorrect: {
-          c: "Incorrect. This is Security Threats.",
-          d: "Incorrect. This is the goal of Efficiency.",
+          b: "Incorrect — While Security is important, keeping the system *available and operational* without outage refers to Reliability.",
+          d: "Incorrect — Efficiency focuses on resource optimization, not primarily on preventing outages.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q28",
-      text: "In the context of Computer System Tasks & Data Handling, what does 'Input' refer to?",
+      text: "Scenario: A regional bank heavily restricts who can view customer financial records, encrypts all data at rest, and deploys advanced firewalls to block external hackers. Which 'System Administrators Goal' are they fulfilling? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Accepting data or commands in a form that the computer can use.",
+          text: "Reliability",
         },
         {
           id: "b",
-          text: "Sending data or commands to the processing unit.",
+          text: "Security",
         },
         {
           id: "c",
-          text: "Accepting figures, facts, or sets of instructions.",
+          text: "Protecting data and resources from unauthorized access and threats",
         },
         {
           id: "d",
-          text: "Manipulating data into information that people require.",
+          text: "Efficiency",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["b", "c"],
       explanation: {
-        correct: "Options A, B, and C accurately define the Input process.",
+        correct:
+          "Options B and C are correct. Security involves protecting data and system resources from unauthorized access and threats, exactly as the bank is doing[cite: 44].",
         incorrect: {
-          d: "Incorrect. Manipulating data into information is Data Processing.",
+          a: "Incorrect — Reliability focuses on uptime.",
+          d: "Incorrect — Efficiency focuses on hardware/software optimization.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q29",
-      text: "In the context of Computer System Tasks & Data Handling, what does 'Data Processing' or 'The Processor' refer to?",
+      text: "Scenario: A company recently spent $100,000 on new servers. The IT manager uses virtualization to run multiple applications on a single physical server, ensuring the CPU and RAM are fully utilized rather than sitting idle. Which 'System Administrators Goal' is being achieved? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Acting on the information.",
+          text: "Efficiency",
         },
         {
           id: "b",
-          text: "The CPU (which has electronic circuitry) manipulating input data into required information.",
+          text: "Optimizing the performance and utilization of IT resources",
         },
         {
           id: "c",
-          text: "Executing computer instructions.",
+          text: "Security",
         },
         {
           id: "d",
-          text: "Displaying the processed data to the user.",
+          text: "Reliability",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Options A, B, and C accurately define the processing task of a computer system.",
+          "Options A and B are correct. Efficiency focuses on optimizing the performance and full utilization of IT resources[cite: 45].",
         incorrect: {
-          d: "Incorrect. Displaying the data is the Output task.",
+          c: "Incorrect — Security is about protection, not resource utilization.",
+          d: "Incorrect — Reliability is about consistent availability.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q30",
-      text: "In the context of Computer System Tasks & Data Handling, what does 'Output' refer to?",
+      text: "Scenario: A sysadmin team is constantly dealing with managing software vulnerabilities, mitigating risks of data breaches, and defending against automated cyber-attacks. Which 'System Administrators Challenge' are they facing? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Displaying the processed data and information in an understandable and usable form.",
+          text: "Downtime",
         },
         {
           id: "b",
-          text: "Processing and generating results.",
+          text: "Security Threats",
         },
         {
           id: "c",
-          text: "Placing information in memories.",
+          text: "Complexity",
         },
         {
           id: "d",
-          text: "Accepting figures or facts.",
+          text: "Mitigating risks to protect against cyber-attacks",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["b", "d"],
       explanation: {
-        correct: "Options A and B accurately define the Output task.",
+        correct:
+          "Options B and D are correct. The challenge of Security Threats involves managing vulnerabilities and mitigating risks to protect against cyber-attacks[cite: 47].",
         incorrect: {
-          c: "Incorrect. Placing information in memories is Storage.",
-          d: "Incorrect. Accepting facts is Input.",
+          a: "Incorrect — Downtime challenges refer to service interruptions.",
+          c: "Incorrect — Complexity refers to handling diverse technologies.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q31",
-      text: "In the context of Computer System Tasks & Data Handling, what does 'Storage' or 'Storing Information' refer to?",
+      text: "Scenario: An e-commerce website generates $1,000 per minute in sales. A sudden hardware failure takes the site offline. The IT team is under immense pressure to quickly resolve the outage. Which 'System Administrators Challenge' does this situation directly represent? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Placing information in memories.",
+          text: "Downtime",
         },
         {
           id: "b",
-          text: "Using secondary storage devices like hard disks, diskettes, and pendrives.",
+          text: "Minimizing service interruptions and quickly resolving outages",
         },
         {
           id: "c",
-          text: "Storing data and programs outside the computer itself temporarily or permanently.",
+          text: "Complexity",
         },
         {
           id: "d",
-          text: "Executing computer instructions using electronic circuitry.",
+          text: "Security Threats",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "b"],
       explanation: {
-        correct: "Options A, B, and C define the storage task and mechanisms.",
+        correct:
+          "Options A and B are correct. The challenge of Downtime involves minimizing service interruptions and quickly resolving outages to prevent business losses[cite: 48].",
         incorrect: {
-          d: "Incorrect. Executing instructions is the Data Processing task.",
+          c: "Incorrect — Complexity is about managing diverse systems.",
+          d: "Incorrect — The outage was caused by a hardware failure, not explicitly a cyber-attack in this scenario.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q32",
-      text: "What action does a System Administrator perform regarding the system clock?",
+      text: "Scenario: After merging with another corporation, a sysadmin team must simultaneously manage legacy UNIX mainframes, modern AWS cloud servers, Windows Active Directory, and custom Linux applications. Which 'System Administrators Challenge' is causing them stress? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Set the system clock.",
+          text: "Complexity",
         },
         {
           id: "b",
-          text: "Remove the system clock.",
+          text: "Handling diverse and often complex systems and technologies",
         },
         {
           id: "c",
-          text: "Sync the system clock only via hardware replacement.",
+          text: "Downtime",
         },
         {
           id: "d",
-          text: "They do not have privileges to alter the system clock.",
+          text: "Security Threats",
         },
       ],
-      correctOptionIds: ["a"],
+      correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Option A is correct. Setting the system clock is an explicit privilege of the system administrator.",
+          "Options A and B are correct. Complexity is the challenge of handling diverse and often complex systems and technologies within an organization[cite: 49].",
         incorrect: {
-          b: "Incorrect. Removing it is not a standard task mentioned.",
-          c: "Incorrect. It is a software/OS privilege, not just hardware replacement.",
-          d: "Incorrect. They absolutely have this privilege.",
+          c: "Incorrect — There is no mention of a service outage in this scenario.",
+          d: "Incorrect — The challenge described is integration and management, not cyber-attacks.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q33",
-      text: "Which of the following actions are strictly NOT permitted by standard Administrator privileges according to Chapter 1?",
+      text: "Scenario: A retail store cashier uses a barcode scanner to read a product label, and then types a specific discount code on a keyboard. According to 'Computer System Tasks & Data Handling', which stage does this represent? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Killing essential processes required for running the system.",
+          text: "Input",
         },
         {
           id: "b",
-          text: "Changing a user's password without entering the old password.",
+          text: "Data Processing",
         },
         {
           id: "c",
-          text: "Modifying files owned by another user.",
+          text: "Accepting data or commands in a form the computer can use",
         },
         {
           id: "d",
-          text: "Controlling a user's access to networking services.",
+          text: "Output",
         },
       ],
-      correctOptionIds: ["a"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Option A is correct. The text explicitly states administrators can initiate or kill any process *except* essential for running the system.",
+          "Options A and C are correct. The barcode scanner and keyboard act as input devices, accepting data and commands for the computer to use[cite: 50, 1524].",
         incorrect: {
-          b: "Incorrect. They CAN do this.",
-          c: "Incorrect. They CAN do this.",
-          d: "Incorrect. They CAN do this.",
+          b: "Incorrect — Processing occurs inside the CPU after the data is received.",
+          d: "Incorrect — Output is the presentation of processed data.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q34",
-      text: "According to the philosophy of system administration, what operating systems are given as examples for network environments?",
+      text: "Scenario: Raw sales figures from the month are sent to the central server. Inside the server, electronic circuitry executes mathematical instructions to convert these raw figures into a comprehensive quarterly profit margin. According to 'Data Handling', what process is occurring? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Windows 2008 Server",
+          text: "Input",
         },
         {
           id: "b",
-          text: "Linux platform",
+          text: "Data processing",
         },
         {
           id: "c",
-          text: "Android OS",
+          text: "The CPU manipulating input data into required information",
         },
         {
           id: "d",
-          text: "macOS Mobile",
+          text: "Storing Information",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A and B are correct. The notes explicitly mention Windows 2008 Server and Linux platform as examples.",
+          "Options B and C are correct. Data processing is performed by the Processor (CPU), which uses electronic circuitry to manipulate input data into usable information[cite: 50, 1526, 1527].",
         incorrect: {
-          c: "Incorrect. Android OS was not mentioned in the philosophy section.",
-          d: "Incorrect. macOS Mobile was not mentioned.",
+          a: "Incorrect — Input is the receiving of raw data.",
+          d: "Incorrect — Storing is placing data in memory for later use.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q35",
-      text: "Under the 'Administrator's Required Skills', which of the following falls specifically under 'Technical Proficiency'?",
+      text: "Scenario: A video editing agency completes a massive film project. To free up active memory but ensure the terabytes of raw footage are kept safe for future use, they move the files to external hard drives. In 'Data Handling', what stage is this? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Understanding TCP/IP, DNS, and DHCP.",
+          text: "Input",
         },
         {
           id: "b",
-          text: "Writing scripts in Python.",
+          text: "Output",
         },
         {
           id: "c",
-          text: "Using configuration management tools like Ansible.",
+          text: "Storing information (secondary storage)",
         },
         {
           id: "d",
-          text: "Diagnosing and troubleshooting system issues.",
+          text: "Holding data outside the computer itself",
         },
       ],
-      correctOptionIds: ["a"],
+      correctOptionIds: ["c", "d"],
       explanation: {
         correct:
-          "Option A is correct. Understanding networking concepts like TCP/IP, DNS, and DHCP is explicitly listed under Technical Proficiency.",
+          "Options C and D are correct. Storing information refers to using secondary storage (like external hard drives) to hold data outside the computer's primary memory[cite: 50, 1530].",
         incorrect: {
-          b: "Incorrect. This falls under Automation and Scripting or Programming Skills.",
-          c: "Incorrect. This falls under Automation and Scripting.",
-          d: "Incorrect. This falls under Problem-Solving Skills.",
+          a: "Incorrect — Input receives data.",
+          b: "Incorrect — Output displays processed data to users.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q36",
-      text: "Which of the following best defines the 'Warmware' component of a computer system?",
+      text: "Scenario: After a complex financial algorithm completes its calculations, the final graphs and charts are displayed on the CEO's monitor and a hard copy is printed for the board meeting. In 'Data Handling', what stage do the monitor and printer represent? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Users who interact with the hardware and software.",
+          text: "Input",
         },
         {
           id: "b",
-          text: "Administrators and IT staff who manage the hardware and software.",
+          text: "Data processing",
         },
         {
           id: "c",
-          text: "The cooling systems that regulate CPU temperature.",
+          text: "Output",
         },
         {
           id: "d",
-          text: "The storage devices used to hold data temporarily.",
+          text: "Displaying processed data in an understandable and usable form",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["c", "d"],
       explanation: {
         correct:
-          "Options A and B correctly define Warmware as the human element (users, administrators, IT staff).",
+          "Options C and D are correct. Output devices display the processed data/information in an understandable and usable form for the people requiring it[cite: 50, 1528, 1529].",
         incorrect: {
-          c: "Incorrect. This is a distractor related to hardware cooling.",
-          d: "Incorrect. This refers to Storage (Hardware).",
+          a: "Incorrect — Input devices send data to the computer.",
+          b: "Incorrect — Processing manipulates the data before it is output.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q37",
-      text: "Which of the following is true about the 'root' user?",
+      text: "Scenario: An IT professional spends their day taking calls from employees who forgot their login credentials, helping them connect to local printers, and resolving basic application freeze errors. Based on the 'Categories of System Administration', which role best fits this description? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It holds absolute power to the system.",
+          text: "Database Administrator (DBA)",
         },
         {
           id: "b",
-          text: "Its user-id and password are automatically created during installation.",
+          text: "Technical Support",
         },
         {
           id: "c",
-          text: "It uses the special user-id value of 0 (zero).",
+          text: "Security Administrator",
         },
         {
           id: "d",
-          text: "It is restricted from accessing scheduling services.",
+          text: "Computer Operator",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["b", "d"],
       explanation: {
         correct:
-          "Options A, B, and C are correct facts about the root user as stated in the text.",
+          "Options B and D are correct. Technical Support and Computer Operators are categories of system administration that focus heavily on direct end-user assistance and daily routine operations[cite: 25, 1495, 1496].",
         incorrect: {
-          d: "Incorrect. The root user/administrator controls access to scheduling services, and is not restricted from it.",
+          a: "Incorrect — DBAs focus on managing database systems.",
+          c: "Incorrect — Security Administrators focus on organizational security policies and cyber threats.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q38",
-      text: "What does the '#' symbol indicate in a system administration terminal context according to the notes?",
+      text: "Scenario: A company's internal wiki states that the designated root user in their UNIX environment has absolute power to manage the system. Which characteristics correctly define this 'root user' status based on the system administrator philosophy? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It indicates a login as root.",
+          text: "They act as a single, trusted person responsible for administrating the whole system.",
         },
         {
           id: "b",
-          text: "It indicates a standard user prompt.",
+          text: "Their user ID is automatically assigned as zero (0).",
         },
         {
           id: "c",
-          text: "It is the command for print working directory.",
+          text: "They must gain permission from a superior before killing any system process.",
         },
         {
           id: "d",
-          text: "It means the root directory.",
+          text: "They operate under the prompt indicator '#'.",
         },
       ],
-      correctOptionIds: ["a"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
-        correct: "Option A is correct. The prompt '#' indicates login as root.",
+        correct:
+          "Options A, B, and D are correct. The root user is a single trusted person with absolute power, has a default user ID of 0, and operates with the '#' prompt[cite: 1400, 1403, 1411, 1420].",
         incorrect: {
-          b: "Incorrect. It specifically indicates a root (admin) user, not a standard user.",
-          c: "Incorrect. The command is 'pwd'.",
-          d: "Incorrect. The root directory is indicated by '/'.",
+          c: "Incorrect — The root user holds absolute power and does not require system-level permission to kill processes.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q39",
-      text: "What does the command 'pwd' stand for and output in the context of the root login example?",
+      text: "Scenario: The Chief Technology Officer defines the core responsibilities for a newly hired System Administrator. According to standard admin roles, which overarching tasks should be included in their job description? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It stands for 'print working directory'.",
+          text: "Install, support, and maintain servers or computer systems.",
         },
         {
           id: "b",
-          text: "It outputs '/' meaning the root directory.",
+          text: "Perform routine audits of systems and software.",
         },
         {
           id: "c",
-          text: "It stands for 'password working directory'.",
+          text: "Apply OS updates, patches, and configuration changes.",
         },
         {
           id: "d",
-          text: "It outputs '#' to show administrator privileges.",
+          text: "Write code to develop the company's core commercial software product.",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
         correct:
-          "Options A and B are correct. 'pwd' is the command for print working directory, and in the example, it outputs '/' indicating the root directory.",
+          "Options A, B, and C are correct. The main roles of a system administrator include installing/supporting servers, performing audits, and applying OS updates and patches[cite: 12, 14, 16].",
         incorrect: {
-          c: "Incorrect. It stands for 'print working directory'.",
-          d: "Incorrect. '#' is the prompt, not the output of 'pwd'.",
+          d: "Incorrect — Writing commercial software code is the job of a software developer, not a system administrator.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q40",
-      text: "What are the 4 main aspects of data handling listed in the Computer System Tasks?",
+      text: "Scenario: An organization expects its IT infrastructure to support its operational needs without exceeding its financial limits. When a sysadmin acquires new computer components or provides routine automation, what overarching philosophy are they fulfilling? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Input Devices",
+          text: "Ensuring uptime, performance, resources, and security meet user needs.",
         },
         {
           id: "b",
-          text: "The Processor",
+          text: "Ensuring the needs are met without exceeding the budget.",
         },
         {
           id: "c",
-          text: "Output Devices",
+          text: "Designing completely new operating systems to save on licensing costs.",
         },
         {
           id: "d",
-          text: "Storage",
-        },
-        {
-          id: "e",
-          text: "Network Topologies",
+          text: "Planning, installing, and maintaining computer systems involving servers and clients.",
         },
       ],
-      correctOptionIds: ["a", "b", "c", "d"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, B, C, and D are the exact 4 main aspects of data handling covered in Chapter 1.",
+          "Options A, B, and D are correct. The philosophy of system administration is to ensure systems meet user needs (uptime, security) without exceeding the budget, through planning and maintaining servers and clients[cite: 1389, 1397].",
         incorrect: {
-          e: "Incorrect. Network Topologies are not one of the 4 main aspects of data handling (Input, Processor, Output, Storage).",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q41",
-      text: "Which of the following storage mediums are explicitly listed as examples of 'secondary storage' in Chapter 1?",
-      options: [
-        {
-          id: "a",
-          text: "Hard disk",
-        },
-        {
-          id: "b",
-          text: "Diskettes",
-        },
-        {
-          id: "c",
-          text: "Pendrives",
-        },
-        {
-          id: "d",
-          text: "Primary RAM",
-        },
-      ],
-      correctOptionIds: ["a", "b", "c"],
-      explanation: {
-        correct:
-          "Options A, B, and C are correct examples of secondary storage provided in the text.",
-        incorrect: {
-          d: "Incorrect. RAM is primary storage/memory, not secondary storage.",
-        },
-      },
-    },
-    {
-      type: QuestionType.MULTIPLE_SELECT,
-      id: "ms-q42",
-      text: "According to the notes, what are the characteristics of secondary storage?",
-      options: [
-        {
-          id: "a",
-          text: "It can store data and programmes outside the computer itself.",
-        },
-        {
-          id: "b",
-          text: "It supplements memory or primary storage.",
-        },
-        {
-          id: "c",
-          text: "It can hold data or programmes temporarily.",
-        },
-        {
-          id: "d",
-          text: "It contains the electronic circuitry that executes computer instructions.",
-        },
-      ],
-      correctOptionIds: ["a", "b", "c"],
-      explanation: {
-        correct:
-          "Options A, B, and C are correct. Secondary storage supplements primary storage, stores data outside the computer, and can hold data temporarily.",
-        incorrect: {
-          d: "Incorrect. The electronic circuitry that executes instructions is the CPU (Processor).",
+          c: "Incorrect — Sysadmins do not typically design completely new operating systems from scratch.",
         },
       },
     },

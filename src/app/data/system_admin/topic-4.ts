@@ -9,1228 +9,1471 @@ export const sysadminTopic4: Quiz = {
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q1",
-      text: "Which of the following correctly define the core concepts of User Management? (Select all that apply)",
+      text: "A financial institution wants to upgrade its client portal to prevent unauthorized impersonation. The IT manager proposes a system that requires clients to provide their password and scan their fingerprint on their mobile device. Which authentication factors are being utilized in this scenario? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It refers to the processes, policies, and procedures involved in controlling user activities and access rights.",
+          text: "Something you know",
         },
         {
           id: "b",
-          text: "It integrates closely with Identity and Access Management (IAM) to ensure confidentiality, integrity, and availability.",
+          text: "Something you have",
         },
         {
           id: "c",
-          text: "It is exclusively concerned with the hardware specifications of user workstations.",
+          text: "Something you are",
         },
         {
           id: "d",
-          text: "It is a structured administrative and security framework that governs the entire lifecycle of digital identities.",
+          text: "Context-aware access",
         },
         {
           id: "e",
-          text: "It only involves the initial onboarding and creation of user credentials.",
+          text: "Federated Identity",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Options A, B, and D are correct. User management involves processes and policies for access rights, integrates with IAM for security triad (CIA), and governs the entire lifecycle of digital identities. Options C and E are incorrect as user management is not hardware-focused and covers the entire lifecycle, including monitoring and offboarding.",
+          "Options A and C are correct. The password represents 'Something you know', while the fingerprint scan represents 'Something you are' (Biometrics).",
         incorrect: {
-          c: "Incorrect — User management governs digital identities and access rights, not hardware specifications.",
-          e: "Incorrect — It involves the entire lifecycle, including regulating, monitoring, and revoking access, not just onboarding.",
+          b: "Incorrect — The scenario does not mention a physical token, smart card, or OTP device required for access.",
+          d: "Incorrect — Context-aware access involves attributes like location or time, which are not mentioned here.",
+          e: "Incorrect — Federated identity involves trust-based authentication across different organizations, not multi-factor internal login.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q2",
-      text: "What are the core criteria of User Management? (Select all that apply)",
+      text: "A regional hospital recently updated its security policy. A doctor is now strictly granted access to sensitive patient records only when they are physically connected to the hospital's internal network and only during their officially scheduled shifts. Which access control models and principles are most directly demonstrated here? (Select all that apply)",
       options: [
-        { id: "a", text: "Authentication" },
-        { id: "b", text: "Network Topology Design" },
-        { id: "c", text: "Authorization" },
-        { id: "d", text: "Provisioning & Deprovisioning" },
-        { id: "e", text: "Monitoring & Auditing" },
-        { id: "f", text: "Hardware Procurement" },
+        {
+          id: "a",
+          text: "Role-Based Access Control (RBAC) alone",
+        },
+        {
+          id: "b",
+          text: "Attribute-Based Access Control (ABAC)",
+        },
+        {
+          id: "c",
+          text: "Discretionary Access Control (DAC)",
+        },
+        {
+          id: "d",
+          text: "Context-aware access",
+        },
+        {
+          id: "e",
+          text: "Single Sign-On (SSO)",
+        },
       ],
-      correctOptionIds: ["a", "c", "d", "e"],
+      correctOptionIds: ["b", "d"],
       explanation: {
         correct:
-          "Options A, C, D, and E are correct. The criteria of user management include Authentication, Authorization, Provisioning & Deprovisioning, Password Management, Access Control, and Monitoring & Auditing. B and F are hardware/network infrastructure tasks, not user management criteria.",
+          "Options B and D are correct. The access is dependent on environmental and situational attributes (time of shift, location of network), which are the defining characteristics of ABAC and Context-aware access.",
         incorrect: {
-          b: "Incorrect — Network Topology Design is a network management task, not a user management criterion.",
-          f: "Incorrect — Hardware Procurement is related to physical asset management, not digital identity and access.",
+          a: "Incorrect — RBAC assigns permissions purely based on the user's role (e.g., Doctor), but lacks the capability to restrict based on dynamic conditions like time and location.",
+          c: "Incorrect — DAC allows resource owners to arbitrarily decide who gets access, which does not fit this automated, policy-driven scenario.",
+          e: "Incorrect — SSO is an authentication mechanism for logging into multiple systems with one credential, not an access control model.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q3",
-      text: "Which of the following accurately describes Authentication and its factors? (Select all that apply)",
+      text: "An audit at a technology firm revealed that a former system administrator's account was still actively making changes to the network configurations eight months after the employee had resigned. No alerts were generated during this period. Which of the following failures in user management processes led to this situation? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Authentication validates the claimed identity of a user before access is granted.",
+          text: "Failure to enforce the Principle of Least Privilege (POLP)",
         },
-        { id: "b", text: "A password is an example of 'something you have'." },
+        {
+          id: "b",
+          text: "Lack of a formal deprovisioning and offboarding process",
+        },
         {
           id: "c",
-          text: "Biometrics, such as fingerprints or retinas, represent 'something you are'.",
+          text: "Failure to conduct periodic access log reviews and auditing",
         },
         {
           id: "d",
-          text: "Authentication prevents impersonation attacks and reduces unauthorized entry.",
+          text: "Implementation of over-restrictive password policies",
         },
         {
           id: "e",
-          text: "Smart cards and OTP tokens are examples of 'something you know'.",
+          text: "Creation of an orphan account",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["b", "c", "e"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Authentication validates identity, uses biometrics as 'something you are', and prevents impersonation. B is incorrect because a password is 'something you know'. E is incorrect because smart cards and OTPs are 'something you have'.",
+          "Options B, C, and E are correct. The failure to deprovision the account upon resignation created an active 'orphan account'. Furthermore, the lack of alerts indicates that access logs were not being periodically reviewed or audited.",
         incorrect: {
-          b: "Incorrect — A password is classified as 'something you know', not 'something you have'.",
-          e: "Incorrect — Smart cards and OTP tokens are physical items, making them 'something you have', not 'something you know'.",
+          a: "Incorrect — While POLP is important, the core issue is that the employee should have zero privilege after leaving, not limited privilege.",
+          d: "Incorrect — Password policies are unrelated to the failure to disable an account after an employee departs.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q4",
-      text: "Which of the following are considered advanced mechanisms of Authentication? (Select all that apply)",
+      text: "A corporation implements a new security directive requiring all employees to change their passwords every 14 days. The password must contain at least 12 characters, including uppercase, lowercase, numbers, and symbols. Shortly after, the IT helpdesk reports a 60% increase in lockouts, and managers notice employees writing passwords on sticky notes attached to their monitors. What are the negative outcomes of this over-restrictive policy? (Select all that apply)",
       options: [
-        { id: "a", text: "Multi-Factor Authentication (MFA)" },
-        { id: "b", text: "Discretionary Access Control (DAC)" },
-        { id: "c", text: "Single Sign-On (SSO)" },
-        { id: "d", text: "Federated Identity" },
-        { id: "e", text: "Separation of Duties (SOD)" },
+        {
+          id: "a",
+          text: "It significantly increases administrative overhead for the IT team.",
+        },
+        {
+          id: "b",
+          text: "It inadvertently exposes credentials to physical compromise and social engineering.",
+        },
+        {
+          id: "c",
+          text: "It ensures complete immunity against brute-force attacks.",
+        },
+        {
+          id: "d",
+          text: "It creates severe user frustration and disrupts productivity.",
+        },
+        {
+          id: "e",
+          text: "It perfectly balances system security with user experience.",
+        },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. MFA, SSO, and Federated Identity are advanced authentication mechanisms. B and E are incorrect because DAC is an authorization model and SOD is an authorization principle.",
+          "Options A, B, and D are correct. Frequent, complex password changes lead to password fatigue, causing users to write them down (physical compromise risk), frustrating users, and burdening the helpdesk with reset requests.",
         incorrect: {
-          b: "Incorrect — Discretionary Access Control (DAC) is a model of authorization, not an authentication mechanism.",
-          e: "Incorrect — Separation of Duties is a principle of authorization used to prevent conflicts of interest.",
+          c: "Incorrect — While complex passwords deter brute-force attacks, writing them on sticky notes completely bypasses digital security, making the system vulnerable.",
+          e: "Incorrect — This scenario explicitly demonstrates a failure to balance security with user experience.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q5",
-      text: "Which statements are TRUE regarding Role-Based Access Control (RBAC)? (Select all that apply)",
+      text: "To resolve the issues caused by the over-restrictive 14-day password change policy, the Chief Information Security Officer (CISO) decides to redesign the authentication environment. Which of the following modern approaches would best improve usability while maintaining or enhancing security? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Permissions are assigned directly to individual users.",
+          text: "Implementing Single Sign-On (SSO)",
         },
         {
           id: "b",
-          text: "Permissions are assigned to predefined roles, such as Lecturer or Student.",
+          text: "Shortening the mandatory session timeout to 2 minutes",
         },
         {
           id: "c",
-          text: "It bases access decisions dynamically on environmental attributes like time or location.",
+          text: "Transitioning to passwordless authentication utilizing biometrics",
         },
-        { id: "d", text: "It is a form of authorization." },
+        {
+          id: "d",
+          text: "Disabling account lockout policies entirely",
+        },
         {
           id: "e",
-          text: "It allows resource owners to arbitrarily decide who gets access.",
+          text: "Enforcing the use of Access Control Lists (ACLs) for logins",
         },
       ],
-      correctOptionIds: ["b", "d"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Options B and D are true. RBAC is an authorization model where permissions are assigned to roles, not individuals. A is incorrect because permissions go to roles. C describes ABAC. E describes DAC.",
+          "Options A and C are correct. SSO reduces password fatigue by requiring only one login, while passwordless authentication (like biometrics) removes the need to remember complex, rotating passwords entirely.",
         incorrect: {
-          a: "Incorrect — In RBAC, permissions are assigned to roles, not individuals.",
-          c: "Incorrect — Basing decisions on environmental attributes like time or location is a feature of ABAC (Attribute-Based Access Control).",
-          e: "Incorrect — Letting resource owners decide access is the definition of Discretionary Access Control (DAC).",
+          b: "Incorrect — A 2-minute timeout is extremely restrictive and would severely harm usability and productivity.",
+          d: "Incorrect — Disabling lockouts would leave the system highly vulnerable to brute-force attacks.",
+          e: "Incorrect — ACLs are used for resource authorization, not for improving the initial authentication login experience.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q6",
-      text: "How does Attribute-Based Access Control (ABAC) differ from other access control models? (Select all that apply)",
+      text: "During a routine audit, it is discovered that a Senior Financial Analyst has been consistently logging into the ERP system at 3:00 AM to download massive volumes of sensitive financial reports onto a personal cloud drive. The analyst has legitimate read-access to these files based on their job role. Why did the existing Role-Based Access Control (RBAC) fail to prevent this data exfiltration? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It uses a central authority to enforce strict military-style policies.",
+          text: "RBAC lacks behavioral monitoring to detect massive, unusual data transfers.",
         },
         {
           id: "b",
-          text: "It bases decisions on attributes of the user, resource, or environment.",
+          text: "RBAC does not regulate what a user does with the data once authorized access is granted.",
         },
         {
           id: "c",
-          text: "It can restrict access to specific times, such as 'only during office hours'.",
+          text: "The analyst was not granted sufficient permissions under the RBAC model.",
         },
-        { id: "d", text: "It is less flexible than RBAC." },
+        {
+          id: "d",
+          text: "RBAC inherently prevents all insider threats but failed due to a software bug.",
+        },
         {
           id: "e",
-          text: "It relies entirely on the resource owner's discretion to grant access.",
+          text: "RBAC does not restrict system access based on off-hours or external network transfers.",
         },
       ],
-      correctOptionIds: ["b", "c"],
+      correctOptionIds: ["a", "b", "e"],
       explanation: {
         correct:
-          "Options B and C are correct. ABAC bases access decisions on attributes (user, resource, environment) and can enforce context like 'office hours only'. A describes MAC. D is incorrect because ABAC is highly flexible. E describes DAC.",
+          "Options A, B, and E are correct. RBAC only ensures the user has the right to access data based on their role. It does not monitor post-access behavior (like downloading huge volumes), nor does it natively restrict access based on time (3:00 AM) or destination (personal cloud).",
         incorrect: {
-          a: "Incorrect — Using a central authority for strict policies describes Mandatory Access Control (MAC).",
-          d: "Incorrect — ABAC is considered highly flexible compared to the rigid nature of RBAC.",
-          e: "Incorrect — Relying on the resource owner's discretion is Discretionary Access Control (DAC).",
+          c: "Incorrect — The scenario explicitly states the analyst has legitimate access, meaning their permissions were sufficient (or perhaps too broad).",
+          d: "Incorrect — RBAC cannot stop an authorized insider threat who misuses their legitimate privileges; it is not a bug, but a limitation of the model.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q7",
-      text: "Which of the following principles are strictly applied within Authorization? (Select all that apply)",
+      text: "To mitigate the insider threat posed by the Senior Financial Analyst downloading data at night, which technical controls and monitoring mechanisms should the IT department implement? (Select all that apply)",
       options: [
-        { id: "a", text: "Least Privilege Principle" },
-        { id: "b", text: "Single Sign-On (SSO)" },
-        { id: "c", text: "Separation of Duties (SOD)" },
-        { id: "d", text: "Account Lockout Policy" },
-        { id: "e", text: "Password Hashing" },
+        {
+          id: "a",
+          text: "Deploy a Security Information and Event Management (SIEM) system.",
+        },
+        {
+          id: "b",
+          text: "Implement context-aware access to restrict logins during off-hours.",
+        },
+        {
+          id: "c",
+          text: "Switch entirely to Discretionary Access Control (DAC).",
+        },
+        {
+          id: "d",
+          text: "Block logical access to external personal cloud transfers.",
+        },
+        {
+          id: "e",
+          text: "Remove the analyst's account without any investigation.",
+        },
       ],
-      correctOptionIds: ["a", "c"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A and C are correct. Least Privilege (giving users minimum required access) and Separation of Duties (preventing conflict of interest) are authorization principles. B is authentication. D and E are password/credential management mechanisms.",
+          "Options A, B, and D are correct. A SIEM system will detect behavioral anomalies in real-time. Context-aware access will prevent 3:00 AM logins, and blocking external transfers protects data confidentiality.",
         incorrect: {
-          b: "Incorrect — Single Sign-On is an advanced authentication mechanism.",
-          d: "Incorrect — Account lockout is a password and credential management policy.",
-          e: "Incorrect — Password hashing is a security enhancement for credential management.",
+          c: "Incorrect — DAC allows resource owners to decide access, which would not solve the issue and could worsen security compared to RBAC.",
+          e: "Incorrect — Deleting the account immediately ignores proper incident response, auditing, and forensic investigation protocols.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q8",
-      text: "What tasks are typically involved in the Provisioning (Onboarding) process? (Select all that apply)",
+      text: "An e-learning platform allows anyone to register by simply providing an email address and a 4-character password. No verification links are sent, and accounts are activated immediately. Recently, thousands of fake accounts were created to manipulate online assessment scores. Which weaknesses in the user registration process are directly responsible for this issue? (Select all that apply)",
       options: [
-        { id: "a", text: "Archiving user data" },
-        { id: "b", text: "Account creation in systems like email and ERP" },
-        { id: "c", text: "Role assignment and permission configuration" },
-        { id: "d", text: "Disabling accounts" },
-        { id: "e", text: "Initial credential setup" },
+        {
+          id: "a",
+          text: "Lack of an email verification or OTP step.",
+        },
+        {
+          id: "b",
+          text: "Failure to validate the personal identity of the registrant.",
+        },
+        {
+          id: "c",
+          text: "Enforcement of overly strict password history rules.",
+        },
+        {
+          id: "d",
+          text: "Absence of strong password management policies regarding complexity and length.",
+        },
+        {
+          id: "e",
+          text: "Mandatory acceptance of the Terms of Service Agreement.",
+        },
       ],
-      correctOptionIds: ["b", "c", "e"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options B, C, and E are correct. Provisioning involves account creation, role assignment, and initial credential setup. Options A and D are tasks associated with Deprovisioning (Offboarding).",
+          "Options A, B, and D are correct. The lack of email verification allows automated bot signups. The lack of identity validation allows students to impersonate others. A 4-character password indicates a failure in password policy enforcement.",
         incorrect: {
-          a: "Incorrect — Archiving user data is a step in the Deprovisioning (Offboarding) process.",
-          d: "Incorrect — Disabling accounts occurs during Deprovisioning.",
+          c: "Incorrect — The scenario states they use simple passwords; there are no strict rules in place.",
+          e: "Incorrect — Accepting a Terms of Service agreement is a standard legal step and does not cause or prevent the creation of fake accounts technically.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q9",
-      text: "What are the serious risks if Deprovisioning is mismanaged? (Select all that apply)",
+      text: "If the e-learning platform redesigns its registration process to require institutional ID uploads and multi-factor authentication (MFA) for every login, what will be the primary trade-off of this implementation? (Select all that apply)",
       options: [
-        { id: "a", text: "Users may struggle with frequent password resets." },
+        {
+          id: "a",
+          text: "It will completely eliminate the need for auditing logs.",
+        },
         {
           id: "b",
-          text: "Creation of orphan accounts (active accounts with no owner).",
+          text: "It drastically enhances system trust and data integrity.",
         },
         {
           id: "c",
-          text: "Insider threats due to excessive privileges remaining active.",
+          text: "It adds friction to the onboarding process, decreasing accessibility and user experience.",
         },
         {
           id: "d",
-          text: "Multi-Factor Authentication will automatically disable.",
+          text: "It shifts the system to a Mandatory Access Control (MAC) model.",
         },
         {
           id: "e",
-          text: "Former employees might retain unauthorized system access.",
+          text: "It makes it significantly harder for automated bots to create fake accounts.",
         },
       ],
       correctOptionIds: ["b", "c", "e"],
       explanation: {
         correct:
-          "Options B, C, and E are correct. Mismanaged deprovisioning leads to orphan accounts, insider threats from lingering privileges, and unauthorized access by former employees. A is a password management issue. D is factually incorrect.",
+          "Options B, C, and E are correct. The redesign enhances security, data integrity, and bot prevention, but the core trade-off is reduced usability and accessibility due to the added friction of uploading IDs and using MFA.",
         incorrect: {
-          a: "Incorrect — Struggling with frequent password resets is an issue related to overly restrictive password management policies, not deprovisioning.",
-          d: "Incorrect — Mismanaged deprovisioning does not cause MFA to automatically disable.",
+          a: "Incorrect — Auditing is always required for compliance and detecting insider threats; MFA does not replace auditing.",
+          d: "Incorrect — MFA and ID verification are authentication and registration steps, they do not inherently change the authorization framework to MAC.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q10",
-      text: "Which of the following are elements of proper Password & Credential Management? (Select all that apply)",
+      text: "A software development firm wants to ensure that its developers only have access to the specific code repositories required for their current active projects. Furthermore, no single developer should have the ability to both write the code and approve it for production deployment. Which authorization principles are being applied here? (Select all that apply)",
       options: [
-        { id: "a", text: "Enforcing minimum password length and complexity." },
-        { id: "b", text: "Writing passwords on paper to prevent locking out." },
+        {
+          id: "a",
+          text: "Single Sign-On (SSO)",
+        },
+        {
+          id: "b",
+          text: "Least Privilege Principle",
+        },
         {
           id: "c",
-          text: "Using password hashing and salting as security enhancements.",
+          text: "Separation of Duties (SOD)",
         },
-        { id: "d", text: "Implementing account lockout policies." },
-        { id: "e", text: "Ensuring credentials are never expired." },
+        {
+          id: "d",
+          text: "Password hashing and salting",
+        },
+        {
+          id: "e",
+          text: "Discretionary Access Control (DAC)",
+        },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Good password management enforces length/complexity, uses hashing/salting, and implements lockouts to prevent brute-force attacks. B is a severe security risk. E is incorrect because password expiration policies are often required.",
+          "Options B and C are correct. Restricting access to only the necessary repositories is the Least Privilege Principle. Preventing the same person from writing and approving code enforces Separation of Duties to prevent conflicts of interest.",
         incorrect: {
-          b: "Incorrect — Writing passwords on paper exposes credentials to physical compromise and social engineering risks.",
-          e: "Incorrect — Policy enforcement typically includes password expiration and history requirements to ensure credentials are rotated.",
+          a: "Incorrect — SSO is an authentication method, not an authorization principle.",
+          d: "Incorrect — Hashing and salting are cryptographic techniques for password security.",
+          e: "Incorrect — DAC allows users to manage their own resource permissions, which contradicts the strict organizational control described.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q11",
-      text: "What does Access Control enforce in a system? (Select all that apply)",
+      text: "An organization is drafting a Computer Usage Policy (AUP) for newly hired employees. To ensure the policy effectively prevents misuse and protects data, which of the following key components MUST be included? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Who can access which resources under what conditions.",
+          text: "Prohibited Activities (e.g., hacking, illegal downloads)",
         },
         {
           id: "b",
-          text: "Only physical boundaries like buildings and server rooms.",
+          text: "Consequences of Violation (e.g., termination, legal action)",
         },
         {
           id: "c",
-          text: "Implementation at both Physical and Logical layers.",
+          text: "Source code for the company's proprietary software",
         },
         {
           id: "d",
-          text: "Techniques like Access Control Lists (ACLs) and Context-aware access.",
+          text: "Internet & Email Usage guidelines",
         },
-        { id: "e", text: "Real-time detection of unusual login locations." },
+        {
+          id: "e",
+          text: "Acknowledgment & Training requirements",
+        },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["a", "b", "d", "e"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Access control enforces who accesses what, operates at both physical and logical layers, and uses techniques like ACLs. B is incorrect because it also covers logical layers (databases, apps). E describes Monitoring.",
+          "Options A, B, D, and E are all essential components of a Computer Usage Policy (AUP) designed to set expectations, restrict bad behavior, and enforce compliance through formal acknowledgment.",
         incorrect: {
-          b: "Incorrect — Access control includes Physical Access Control, but it also crucially includes Logical Access Control (systems, databases).",
-          e: "Incorrect — Real-time detection of unusual login locations is a function of Monitoring & Auditing, not Access Control.",
+          c: "Incorrect — Source code is highly confidential intellectual property and should never be exposed within a general administrative usage policy document.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q12",
-      text: "Which of the following statements accurately describe Monitoring & Auditing? (Select all that apply)",
+      text: "During an internal investigation, it is discovered that a network administrator used their elevated privileges to read the private emails of a colleague without any authorized reason or official request. Which ethical responsibility did the administrator explicitly violate? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Monitoring involves real-time tracking of user activities.",
+          text: "Transparency",
         },
-        { id: "b", text: "Auditing focuses on creating new user accounts." },
+        {
+          id: "b",
+          text: "Confidentiality",
+        },
         {
           id: "c",
-          text: "It utilizes Security Information and Event Management (SIEM) systems.",
+          text: "Data protection",
         },
         {
           id: "d",
-          text: "It helps detect insider threats and supports forensic investigations.",
+          text: "Accountability",
         },
         {
           id: "e",
-          text: "Auditing involves reviewing logs for compliance and generating audit trails.",
+          text: "Fairness and Impartiality",
         },
       ],
-      correctOptionIds: ["a", "c", "d", "e"],
+      correctOptionIds: ["b"],
       explanation: {
         correct:
-          "Options A, C, D, and E are correct. Monitoring tracks activities in real-time, Auditing reviews logs for compliance, and both use tools like SIEM to detect threats and support forensics. B is incorrect because account creation is Provisioning.",
+          "Option B is correct. Administrators have an ethical duty to maintain confidentiality and strictly avoid using their privileges to access private or sensitive user information without legitimate authorization.",
         incorrect: {
-          b: "Incorrect — Creating new user accounts is part of Provisioning, not Auditing. Auditing is about reviewing logs and compliance.",
+          a: "Incorrect — Transparency refers to being open about policies and actions, not the act of snooping.",
+          c: "Incorrect — Data protection is a user responsibility (though related, confidentiality is the specific admin ethics term here).",
+          d: "Incorrect — Accountability is owning up to actions, whereas the violation itself is a breach of confidentiality.",
+          e: "Incorrect — Fairness relates to equitable resource distribution, not privacy breaches.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q13",
-      text: "How does effective User Management impact Risk Management and Security? (Select all that apply)",
+      text: "A university implements a strict Account Policy for its online grading system. After a professor accidentally types their password incorrectly four times, they are entirely blocked from accessing the portal and must contact IT. Which specific component of the account policy was triggered? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It prevents unauthorized access and cyberattacks through authentication and access controls.",
+          text: "Session Management Policies",
         },
         {
           id: "b",
-          text: "It entirely eliminates the need for physical server security.",
+          text: "Password Complexity Policies",
         },
         {
           id: "c",
-          text: "It helps prevent insider threats and human errors by identifying vulnerabilities in user permissions.",
+          text: "Account Lockout Policies",
         },
         {
           id: "d",
-          text: "It guarantees that hardware failures will not result in downtime.",
+          text: "Audit and Compliance Policies",
         },
         {
           id: "e",
-          text: "It ensures that only authorized individuals can access sensitive data.",
+          text: "User Privilege Policies",
         },
       ],
-      correctOptionIds: ["a", "c", "e"],
+      correctOptionIds: ["c"],
       explanation: {
         correct:
-          "Options A, C, and E are correct. Effective user management secures data, prevents unauthorized access, and mitigates risks like insider threats. B is false because physical security remains vital. D is false as user management does not prevent hardware failures.",
+          "Option C is correct. Account lockout policies are specifically designed to prevent unauthorized access by locking accounts after a predefined number of failed login attempts.",
         incorrect: {
-          b: "Incorrect — Effective user management includes physical access controls but does not eliminate the broader need for physical security (like fire suppression or cooling).",
-          d: "Incorrect — User management focuses on digital identities and access; it cannot prevent physical hardware failures.",
+          a: "Incorrect — Session management deals with timeouts for unattended active sessions.",
+          b: "Incorrect — Password complexity dictates the characters required, not login attempt limits.",
+          d: "Incorrect — Audit policies track behavior but do not actively block logins on their own.",
+          e: "Incorrect — Privilege policies restrict what a user can do after logging in, not the login process itself.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q14",
-      text: "How does User Management maintain Data Integrity? (Select all that apply)",
+      text: "When establishing a secure login environment, administrators must configure various layers of protection. Which of the following elements are considered key aspects of login management within user management? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "By enforcing Role-Based Access Control (RBAC) to limit data modification.",
+          text: "Authentication Methods",
         },
         {
           id: "b",
-          text: "By completely disabling external internet access for all users.",
+          text: "Session Management",
         },
         {
           id: "c",
-          text: "By using audit logs to track changes for accountability.",
+          text: "Physical building architecture",
         },
         {
           id: "d",
-          text: "By utilizing regular access reviews to ensure only necessary personnel retain privileges.",
+          text: "Logging and Monitoring",
         },
         {
           id: "e",
-          text: "By allowing all employees read-and-write access to the Finance database.",
+          text: "Authorization and Access Control",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["a", "b", "d", "e"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Data integrity is maintained by enforcing RBAC, utilizing audit logs, and conducting access reviews. B is not a standard user management practice. E violates the principle of least privilege and destroys data integrity.",
+          "Options A, B, D, and E are all essential aspects of managing the login environment securely.",
         incorrect: {
-          b: "Incorrect — Disabling internet access entirely is an extreme network policy, not a standard method of maintaining data integrity in user management.",
-          e: "Incorrect — Giving all employees full access violates the Principle of Least Privilege and directly threatens data integrity.",
+          c: "Incorrect — While physical access control is part of overall security, physical building architecture is not a software/logical login environment aspect.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q15",
-      text: "Which practices in User Management lead to an Enhanced User Experience? (Select all that apply)",
+      text: "An HR manager recently received a promotion to Finance Director. The IT department updates her system profile, expanding her access from read-only HR records to full access in the finance database, while removing her ability to approve HR timesheets. Which component of user management is actively being performed? (Select all that apply)",
       options: [
-        { id: "a", text: "Implementing Single Sign-On (SSO)." },
+        {
+          id: "a",
+          text: "Deprovisioning (Offboarding)",
+        },
         {
           id: "b",
-          text: "Forcing users to change their password every 7 days.",
+          text: "Authentication factor setup",
         },
         {
           id: "c",
-          text: "Providing self-service options for password resets.",
+          text: "Provisioning Maintenance (Role updates & Access adjustments)",
         },
-        { id: "d", text: "Using biometric logins." },
+        {
+          id: "d",
+          text: "Passwordless authentication",
+        },
         {
           id: "e",
-          text: "Enforcing a 5-minute session timeout for all applications.",
+          text: "Physical Access Control",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["c"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. SSO, self-service options, and biometrics simplify authentication and improve user experience. B and E represent overly restrictive policies that frustrate users and degrade the experience.",
+          "Option C is correct. The scenario describes the 'Maintenance' phase of Provisioning, where role updates (promotions/transfers) require access reviews and adjustments to permissions.",
         incorrect: {
-          b: "Incorrect — Frequent mandatory password rotations cause password fatigue and frustrate users.",
-          e: "Incorrect — A 5-minute timeout is overly restrictive and severely disrupts productivity.",
+          a: "Incorrect — Deprovisioning refers to completely disabling or deleting an account when an employee leaves the company.",
+          b: "Incorrect — The scenario does not discuss changing her login credentials or authentication method.",
+          d: "Incorrect — Passwordless authentication is irrelevant to changing database permissions.",
+          e: "Incorrect — The scenario describes logical access to databases, not physical access to rooms.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q16",
-      text: "What are common issues and challenges faced in User Management? (Select all that apply)",
+      text: "An organization relies heavily on a centralized server for its daily operations. A new IT policy restricts standard employees from modifying critical system files, even if they originally created the file. Only the System Administrator has the privilege to alter these files. What privilege is the administrator exercising? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Users struggling to create and remember strong passwords.",
+          text: "Controlling the physical server room temperature",
         },
-        { id: "b", text: "Excessive access rights increasing security risks." },
-        { id: "c", text: "The impossibility of logging user activities." },
+        {
+          id: "b",
+          text: "Modifying the contents or attributes of any files, although owned by other users",
+        },
+        {
+          id: "c",
+          text: "Initiating biometric scans",
+        },
         {
           id: "d",
-          text: "Many users lacking awareness of security best practices, making them vulnerable to social engineering.",
+          text: "Deprovisioning orphaned accounts",
         },
         {
           id: "e",
-          text: "Poorly managed or inactive accounts serving as entry points for attackers.",
+          text: "Enforcing the Acceptable Use Policy",
         },
       ],
-      correctOptionIds: ["a", "b", "d", "e"],
+      correctOptionIds: ["b"],
       explanation: {
         correct:
-          "Options A, B, D, and E are correct. Password struggles, excessive permissions, lack of awareness, and inactive accounts are major issues. C is incorrect because logging user activities is highly possible and standard via SIEM and audit logs.",
+          "Option B is correct. One of the core administrator privileges is the ability to modify the contents or attributes of any file on the system, regardless of who owns it.",
         incorrect: {
-          c: "Incorrect — Logging user activities is a standard and essential practice in Monitoring & Auditing, not an impossibility.",
+          a: "Incorrect — While important, modifying digital file attributes is unrelated to physical temperature control.",
+          c: "Incorrect — Initiating biometric scans is an authentication method, not a file modification privilege.",
+          d: "Incorrect — Deprovisioning is account lifecycle management, not file attribute modification.",
+          e: "Incorrect — AUP enforcement is an administrative HR/Policy task, whereas file modification is a technical system privilege.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q17",
-      text: "Which steps are part of the User Registration Process? (Select all that apply)",
+      text: "Effective user management is crucial for maintaining Data Integrity within an organization. How does user management specifically prevent unauthorized modifications, deletions, or corruptions of data? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Information Collection (users provide personal details).",
+          text: "By enforcing Role-Based Access Control (RBAC) to limit data modification to authorized personnel.",
         },
         {
           id: "b",
-          text: "Credential Setup (creating a username and password).",
+          text: "By eliminating the need for password expiration histories.",
         },
-        { id: "c", text: "Email Verification (sending a link or OTP)." },
+        {
+          id: "c",
+          text: "By tracking changes for accountability via Audit logs.",
+        },
         {
           id: "d",
-          text: "Hardware Installation (provisioning physical devices).",
+          text: "By ensuring regular access reviews so only necessary personnel retain privileges.",
         },
         {
           id: "e",
-          text: "Terms of Service Agreement (users review and accept conditions).",
+          text: "By allowing all users to have discretionary access to critical databases.",
         },
       ],
-      correctOptionIds: ["a", "b", "c", "e"],
+      correctOptionIds: ["a", "c", "d"],
       explanation: {
         correct:
-          "Options A, B, C, and E are correct steps in User Registration. D is incorrect because hardware installation is physical IT provisioning, not part of the digital user registration process.",
+          "Options A, C, and D are correct. Data integrity is maintained by limiting modification rights via RBAC, holding users accountable through audit logs, and consistently reviewing access permissions to avoid privilege creep.",
         incorrect: {
-          d: "Incorrect — Hardware installation is related to physical asset provisioning, not the software user registration process.",
+          b: "Incorrect — Password histories are an authentication control and do not directly control who modifies data post-login.",
+          e: "Incorrect — Allowing all users discretionary access would severely compromise data integrity by increasing the risk of unauthorized modifications.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q18",
-      text: "Which of the following are components of an Account Policy in User Management? (Select all that apply)",
+      text: "A hospital IT team is designing a hybrid access control model to secure patient records. They decide to use RBAC as the base layer, with ABAC layered on top. They also include a 'break-glass' override system. What is the primary purpose of this 'break-glass' override? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Password Policies defining complexity and expiration.",
+          text: "To allow doctors immediate, life-saving access to records when off-duty or remote, bypassing strict ABAC rules.",
         },
         {
           id: "b",
-          text: "Account Lockout Policies preventing access after failed attempts.",
+          text: "To permanently disable Multi-Factor Authentication for the entire hospital network.",
         },
-        { id: "c", text: "Physical Server Room Access Policies." },
-        { id: "d", text: "Session Management Policies controlling timeouts." },
+        {
+          id: "c",
+          text: "To trigger real-time tracking, logging, and SIEM alerts for administrators to review the anomaly.",
+        },
+        {
+          id: "d",
+          text: "To allow nurses to freely change their RBAC roles to 'Admin' whenever desired.",
+        },
         {
           id: "e",
-          text: "User Privilege Policies assigning permissions based on roles.",
+          text: "To automatically delete orphan accounts during a network outage.",
         },
       ],
-      correctOptionIds: ["a", "b", "d", "e"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Options A, B, D, and E are correct components of an Account Policy. C is incorrect because Physical Server Room Access is a physical security policy, not a logical account policy.",
+          "Options A and C are correct. The break-glass override mitigates the risk of overly restrictive context-aware rules blocking critical emergency access, but it immediately triggers alerts and logs for accountability.",
         incorrect: {
-          c: "Incorrect — Physical Server Room Access is part of physical security and facility management, not a software account policy.",
+          b: "Incorrect — Break-glass is for temporary, tracked emergency access, not permanently disabling global security features like MFA.",
+          d: "Incorrect — Break-glass does not allow users to permanently escalate their roles at will; it grants specific emergency data access.",
+          e: "Incorrect — It has nothing to do with deleting orphan accounts.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q19",
-      text: "What does 'Controlling User Resources' in computer systems involve? (Select all that apply)",
+      text: "A corporate user registration system implements a process where a user enters their name, chooses a password, and immediately receives a 6-digit OTP code to their provided email address. Which step of the User Registration Process does the OTP issuance represent? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Ensuring users only access authorized resources like files, storage, and network bandwidth.",
+          text: "Information Collection",
         },
         {
           id: "b",
-          text: "Defining permissions using Role-Based Access Control (RBAC) or Access Control Lists (ACLs).",
+          text: "Account Activation",
         },
         {
           id: "c",
-          text: "Enforcing policies such as storage quotas or restricting CPU usage per application.",
+          text: "Email Verification",
         },
         {
           id: "d",
-          text: "Allowing users to modify the core operating system kernel freely.",
+          text: "Optional Profile Setup",
         },
         {
           id: "e",
-          text: "Tracking resource consumption to detect unusual activity or excessive usage.",
+          text: "Terms of Service Agreement",
         },
       ],
-      correctOptionIds: ["a", "b", "c", "e"],
+      correctOptionIds: ["c"],
       explanation: {
         correct:
-          "Options A, B, C, and E are correct. Controlling resources involves authorizing access, defining permissions, enforcing quotas, and monitoring consumption. D is incorrect because modifying the core OS kernel is typically heavily restricted to system administrators.",
+          "Option C is correct. Sending an OTP or verification link to the provided address is specifically the 'Email Verification' phase of the registration process.",
         incorrect: {
-          d: "Incorrect — Allowing general users to modify the OS kernel is a massive security risk and contradicts the principle of controlling resources.",
+          a: "Incorrect — Information collection is the initial entry of the name and email.",
+          b: "Incorrect — Activation occurs *after* the OTP is successfully entered and verified.",
+          d: "Incorrect — Profile setup involves adding non-essential information like an avatar.",
+          e: "Incorrect — ToS is reviewing and accepting legal rules.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q20",
-      text: "Which of the following are key aspects of a Login Environment? (Select all that apply)",
+      text: "A university’s IT policy states that students are strictly prohibited from using the campus network to illegally download copyrighted movies. Furthermore, bandwidth consumption per student is capped to ensure fair access for everyone. Which specific components of the Computer Usage Policy (AUP) are being enforced here? (Select all that apply)",
       options: [
-        { id: "a", text: "Authentication Methods" },
-        { id: "b", text: "Session Management" },
-        { id: "c", text: "Hardware Procurement" },
-        { id: "d", text: "Logging and Monitoring" },
-        { id: "e", text: "Authorization and Access Control" },
+        {
+          id: "a",
+          text: "Network Usage",
+        },
+        {
+          id: "b",
+          text: "Prohibited Activities",
+        },
+        {
+          id: "c",
+          text: "Software & Hardware Usage",
+        },
+        {
+          id: "d",
+          text: "Data Security & Confidentiality",
+        },
+        {
+          id: "e",
+          text: "Acknowledgment & Training",
+        },
       ],
-      correctOptionIds: ["a", "b", "d", "e"],
+      correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Options A, B, D, and E are correct. The login environment includes authentication, authorization, session management, and logging/monitoring. C is incorrect as it relates to physical asset acquisition.",
+          "Options A and B are correct. Bandwidth consumption regulation falls under 'Network Usage'. Illegal downloading is explicitly listed under 'Prohibited Activities'.",
         incorrect: {
-          c: "Incorrect — Hardware procurement is acquiring physical devices and is not an aspect of the logical login environment.",
+          c: "Incorrect — This deals with installing/modifying company-provided assets, not downloading media over the network.",
+          d: "Incorrect — Data security is about protecting sensitive corporate information, not stopping movie piracy.",
+          e: "Incorrect — Acknowledgment is the act of signing the document, not the specific rule being broken.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q21",
-      text: "What guidelines are typically outlined in a Computer Usage Policy (AUP)? (Select all that apply)",
+      text: "An organization struggles with managing user access across 15 different internal software platforms. When employees change departments, administrators find it too complex to manually update permissions on every individual system, resulting in dangerous privilege creep. Which mechanism is best suited to resolve this specific issue? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Authorized Use (who can access systems and for what purpose).",
+          text: "Enforcing complex 28-character passwords",
         },
         {
           id: "b",
-          text: "Prohibited Activities (e.g., hacking, illegal downloads).",
+          text: "Implementing a strictly managed Role-Based Access Control (RBAC) policy",
         },
         {
           id: "c",
-          text: "Network Usage (regulating bandwidth and remote access).",
+          text: "Centralizing access control to assign permissions to roles rather than individuals",
         },
         {
           id: "d",
-          text: "Instructions on how to bypass multi-factor authentication.",
+          text: "Relying entirely on Discretionary Access Control (DAC) so managers can handle it locally",
         },
-        { id: "e", text: "Consequences of Violation (disciplinary actions)." },
+        {
+          id: "e",
+          text: "Disabling real-time monitoring to save administrative overhead",
+        },
       ],
-      correctOptionIds: ["a", "b", "c", "e"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A, B, C, and E are correct components of an AUP. D is incorrect because an AUP enforces security measures rather than instructing users how to bypass them.",
+          "Options B and C are correct. Managing access across multiple systems is complex and requires strict RBAC policies where permissions are tied to centralized roles. When an employee moves, changing their role automatically updates all associated permissions.",
         incorrect: {
-          d: "Incorrect — An AUP enforces security measures; providing instructions to bypass MFA violates core security principles.",
+          a: "Incorrect — Passwords do not dictate what resources a user can access after logging in.",
+          d: "Incorrect — DAC distributes control, which would increase the chaos and complexity across 15 platforms.",
+          e: "Incorrect — Disabling monitoring creates a massive security blind spot and does not solve the provisioning issue.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q22",
-      text: "What are the ethical responsibilities of Administrators in computer systems? (Select all that apply)",
+      text: "A system administrator notices that the company's central file server is running out of storage space. Upon investigation, they discover that a few users from the marketing department are saving terabytes of uncompressed personal video files. To maintain efficiency and fair resource allocation, the administrator enforces a rule limiting each marketing user to 50GB of storage. What concept is the administrator applying? (Select all that apply)",
       options: [
-        { id: "a", text: "Fairness and Impartiality" },
+        {
+          id: "a",
+          text: "Authentication Factors",
+        },
         {
           id: "b",
-          text: "Using administrative privileges to read users' personal emails out of curiosity",
+          text: "Controlling User Resources",
         },
-        { id: "c", text: "Transparency" },
-        { id: "d", text: "Confidentiality" },
-        { id: "e", text: "Accountability" },
+        {
+          id: "c",
+          text: "Enforcing Policies for Storage Quotas",
+        },
+        {
+          id: "d",
+          text: "Passwordless Authentication",
+        },
+        {
+          id: "e",
+          text: "Multi-Factor Authentication (MFA)",
+        },
       ],
-      correctOptionIds: ["a", "c", "d", "e"],
+      correctOptionIds: ["b", "c"],
       explanation: {
         correct:
-          "Options A, C, D, and E are correct ethical responsibilities for administrators. B is a severe ethical violation and a breach of confidentiality.",
+          "Options B and C are correct. The administrator is controlling user resources by enforcing policies (specifically, storage quotas) to govern resource usage and maintain fair allocation.",
         incorrect: {
-          b: "Incorrect — Snooping on personal emails without an authorized, documented reason is a direct violation of the ethical responsibility of Confidentiality.",
+          a: "Incorrect — Authentication relates to login verification, not storage limits.",
+          d: "Incorrect — Passwordless deals with credentials.",
+          e: "Incorrect — MFA is an authentication security measure.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q23",
-      text: "What are the ethical responsibilities of Users in a computer system? (Select all that apply)",
+      text: "A newly hired employee clicks on a fraudulent email link claiming to be from the IT department, inadvertently giving hackers access to the company network. The investigation reveals the employee had never been briefed on social engineering or phishing tactics. Which common issue in user management allowed this breach? (Select all that apply)",
       options: [
-        { id: "a", text: "Respect for Policies" },
-        { id: "b", text: "Honesty and Integrity" },
+        {
+          id: "a",
+          text: "Failure to implement physical access controls",
+        },
+        {
+          id: "b",
+          text: "Lack of User Training & Awareness",
+        },
         {
           id: "c",
-          text: "Sharing their passwords with colleagues to improve efficiency",
+          text: "Over-restrictive session timeouts",
         },
-        { id: "d", text: "Data protection" },
-        { id: "e", text: "Respect for Others" },
+        {
+          id: "d",
+          text: "Users lacking awareness of security best practices",
+        },
+        {
+          id: "e",
+          text: "Implementation of Attribute-Based Access Control",
+        },
       ],
-      correctOptionIds: ["a", "b", "d", "e"],
+      correctOptionIds: ["b", "d"],
       explanation: {
         correct:
-          "Options A, B, D, and E are correct. Users must respect policies, act with integrity, protect data, and respect others. C is a violation of security policies and data protection ethics.",
+          "Options B and D are correct. Without proper training and awareness of security best practices, employees remain highly vulnerable to social engineering and phishing attacks.",
         incorrect: {
-          c: "Incorrect — Sharing passwords compromises accountability and security, directly violating the ethical responsibility to respect policies and data protection.",
+          a: "Incorrect — This was a digital phishing attack, not a physical break-in.",
+          c: "Incorrect — Session timeouts do not prevent users from clicking phishing links.",
+          e: "Incorrect — ABAC is an authorization model and does not cause users to fall for phishing emails.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q24",
-      text: "In a scenario where a former administrator's account is used for a data breach 8 months after they left, what user management failure occurred? (Select all that apply)",
+      text: "A military defense network utilizes an authorization model where users cannot alter access permissions for the files they create. Instead, a central authority strictly enforces policies, labeling files with sensitivity levels like 'Top Secret' and only granting access to users with matching clearance. Which access control model is this? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "No formal deprovisioning process, leaving an active 'orphan account'.",
+          text: "Discretionary Access Control (DAC)",
         },
-        { id: "b", text: "The password complexity rules were too strict." },
+        {
+          id: "b",
+          text: "Mandatory Access Control (MAC)",
+        },
         {
           id: "c",
-          text: "Lack of periodic access logs review, allowing unauthorized logins to go unnoticed.",
+          text: "Role-Based Access Control (RBAC)",
         },
         {
           id: "d",
-          text: "Failure to enforce Multi-Factor Authentication (MFA) for administrative accounts.",
+          text: "Single Sign-On (SSO)",
         },
-        { id: "e", text: "The session timeout policy was set to 5 minutes." },
+        {
+          id: "e",
+          text: "Account Lockout Policy",
+        },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["b"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. The breach was caused by the lack of offboarding (creating an orphan account), unreviewed logs, and missing MFA for admins. B and E are unrelated to this specific failure scenario.",
+          "Option B is correct. Mandatory Access Control (MAC) is characterized by a central authority enforcing strict policies (often based on clearance levels), typical in military systems.",
         incorrect: {
-          b: "Incorrect — Strict password complexity does not cause orphan accounts to remain active.",
-          e: "Incorrect — A 5-minute session timeout is an over-restrictive policy issue, not the cause of an ex-employee's account remaining active for 8 months.",
+          a: "Incorrect — DAC allows resource creators/owners to decide access, which is explicitly prohibited in this scenario.",
+          c: "Incorrect — RBAC focuses on job roles, whereas MAC focuses on strict security clearance labels and central enforcement.",
+          d: "Incorrect — SSO is an authentication mechanism.",
+          e: "Incorrect — Lockout policy handles failed passwords.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q25",
-      text: "Why is relying solely on stronger passwords less effective than a layered security approach? (Select all that apply)",
+      text: "To protect against credential reuse and brute-force attacks, an organization decides to enhance its Password & Credential Management policies. Which of the following technical mechanisms should they implement to ensure secure handling of authentication credentials? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Strong passwords do nothing to address the root vulnerability of an orphan account remaining active.",
+          text: "Password hashing and salting",
         },
         {
           id: "b",
-          text: "If an attacker obtains a strong password via phishing, they still gain full access without MFA.",
+          text: "Removing password expiration histories",
         },
         {
           id: "c",
-          text: "Strong passwords completely prevent social engineering.",
+          text: "Account lockout policies",
         },
         {
           id: "d",
-          text: "A layered approach uses secondary factors (MFA) and real-time anomaly detection to stop or detect breaches even if credentials are stolen.",
+          text: "Enforcing the Principle of Least Privilege",
         },
         {
           id: "e",
-          text: "Strong passwords automatically delete inactive accounts.",
+          text: "Storing passwords in plain text for easy recovery",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Options A, B, and D are correct. Strong passwords don't close orphan accounts and are vulnerable to phishing, whereas a layered approach (MFA + SIEM) provides defense-in-depth. C is false because social engineering tricks users into revealing passwords regardless of strength. E is false because password policies do not govern deprovisioning.",
+          "Options A and C are correct. Password hashing and salting securely store credentials, while account lockout policies directly mitigate brute-force guessing attacks.",
         incorrect: {
-          c: "Incorrect — Social engineering attacks (like phishing) bypass password strength by tricking the user into giving it away.",
-          e: "Incorrect — Passwords do not govern account lifecycles; deprovisioning policies handle deleting inactive accounts.",
+          b: "Incorrect — Password histories are used to *prevent* credential reuse, removing them weakens security.",
+          d: "Incorrect — Least Privilege is an authorization concept, not a password/credential management technique.",
+          e: "Incorrect — Storing passwords in plain text is a severe security vulnerability.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q26",
-      text: "In a hospital requiring doctors to access records only during assigned shifts and within hospital premises, why is Role-Based Access Control (RBAC) alone insufficient? (Select all that apply)",
+      text: "During an external audit, an organization is praised for having excellent visibility and traceability of user actions, which proved vital during a recent forensic investigation. Which criteria of user management were highly effective in this scenario? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "RBAC grants permissions strictly based on predefined roles.",
+          text: "Monitoring & Auditing",
         },
         {
           id: "b",
-          text: "RBAC lacks the capability to restrict access based on dynamic environmental factors like time or location.",
+          text: "Reviewing logs for compliance",
         },
         {
           id: "c",
-          text: "RBAC automatically grants full access to nurses and billing admins.",
+          text: "Discretionary Access Control",
         },
-        { id: "d", text: "RBAC is highly flexible and context-aware." },
+        {
+          id: "d",
+          text: "Generating audit trails",
+        },
         {
           id: "e",
-          text: "RBAC cannot evaluate whether a doctor is on-duty or physically inside the hospital.",
+          text: "Passwordless authentication",
         },
       ],
-      correctOptionIds: ["a", "b", "e"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, B, and E are correct. RBAC relies on static roles and cannot assess dynamic contexts like time (shift) or location (premises). C is false based on the standard scenario setup. D describes ABAC, not RBAC.",
+          "Options A, B, and D are correct. Visibility, traceability, and forensic support are the direct outputs of strong Monitoring & Auditing practices, which include generating audit trails and reviewing logs.",
         incorrect: {
-          c: "Incorrect — In the case study, nurses have limited access and admins have billing only. RBAC enforces these static roles well.",
-          d: "Incorrect — ABAC is highly flexible and context-aware, whereas RBAC is rigid and tied to predefined roles.",
+          c: "Incorrect — DAC handles authorization and does not inherently provide traceability or auditing.",
+          e: "Incorrect — Passwordless authentication improves login security/UX, but does not provide forensic logs of user activity.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q27",
-      text: "How can a hybrid access control model be designed to accommodate both roles and environmental context? (Select all that apply)",
+      text: "A well-structured user management system not only secures the network but also provides an 'Enhanced User Experience'. Which of the following implementations directly contribute to improving efficiency and user satisfaction while reducing administrative overhead? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Use RBAC as the base layer to establish fundamental permissions based on job title.",
+          text: "Self-service options for password resets and access requests",
         },
         {
           id: "b",
-          text: "Remove RBAC entirely and only check the user's location.",
+          text: "Simplified authentication via Single Sign-On (SSO) or biometric login",
         },
         {
           id: "c",
-          text: "Implement ABAC layered on top of RBAC to evaluate environmental context (time, location).",
+          text: "Enforcing 28-character complex passwords changed weekly",
         },
         {
           id: "d",
-          text: "Implement a 'break-glass' override system for emergency situations where context rules might improperly block access.",
+          text: "Intuitive access control with easy role assignments",
         },
         {
           id: "e",
-          text: "Use DAC to let doctors manually grant access to themselves.",
+          text: "Removing all auditing logs to speed up system performance",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. A hybrid model uses RBAC for the base role verification, ABAC for the context checks, and incorporates a 'break-glass' protocol for emergencies. B removes role verification entirely, which is insecure. E is an incorrect application of DAC.",
+          "Options A, B, and D are correct. These features empower users to solve their own issues (self-service), reduce login friction (SSO), and streamline administrative assignments, leading to a seamless experience.",
         incorrect: {
-          b: "Incorrect — Removing RBAC would mean anyone in the right location could access the records, regardless of whether they are a doctor.",
-          e: "Incorrect — DAC allows resource owners to manage access, but standard users (doctors) should not self-grant system-level overrides at their discretion.",
+          c: "Incorrect — This creates massive friction and ruins the user experience.",
+          e: "Incorrect — Removing audit logs destroys security and compliance visibility; it is not a valid method for enhancing user experience.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q28",
-      text: "What are the negative consequences of over-restrictive policies, such as changing passwords every 14 days and 5-minute session timeouts? (Select all that apply)",
+      text: "As part of the Computer Usage Policy (AUP), the 'Internet & Email Usage' section usually outlines specific rules for employees. Which of the following rules belong in this specific section? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "They create user frustration and increase administrative overhead.",
+          text: "Acceptable online behavior",
         },
-        { id: "b", text: "They cause a massive decrease in helpdesk tickets." },
+        {
+          id: "b",
+          text: "Restrictions on personal use of company email",
+        },
         {
           id: "c",
-          text: "They severely disrupt productivity by forcing constant re-authentication.",
+          text: "Spam policies",
         },
         {
           id: "d",
-          text: "They paradoxically reduce security by encouraging users to seek workarounds, like writing passwords on paper.",
+          text: "Guidelines on installing company-provided hardware",
         },
         {
           id: "e",
-          text: "They make the system perfectly immune to all cyber attacks.",
+          text: "Disciplinary actions for general policy breaches",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["a", "b", "c"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Over-restrictive policies frustrate users, disrupt work, and reduce security by causing risky workarounds. B is incorrect because helpdesk tickets actually increase. E is factually incorrect as no system is immune.",
+          "Options A, B, and C are correct. The Internet & Email Usage component specifically governs online behavior, spam handling, and limitations on using corporate communication tools for personal matters.",
         incorrect: {
-          b: "Incorrect — Over-restrictive policies significantly increase helpdesk tickets due to frequent lockouts and password resets.",
-          e: "Incorrect — Extreme restriction causes users to adopt insecure workarounds (like writing down passwords), which lowers actual security.",
+          d: "Incorrect — This belongs in the 'Software & Hardware Usage' section.",
+          e: "Incorrect — This belongs in the 'Consequences of Violation' section.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q29",
-      text: "How can an overly restrictive authentication system be modernized to balance security and usability? (Select all that apply)",
+      text: "A standard user is upset because they are not allowed to install unapproved third-party software on their work laptop. The IT team rejects the request, citing ethical and policy responsibilities. Which ethical responsibility is the standard user failing to uphold by demanding unauthorized software installation? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Implement Single Sign-On (SSO) to reduce password fatigue.",
+          text: "Respect for Policies",
         },
         {
           id: "b",
-          text: "Adopt passwordless authentication utilizing biometrics.",
+          text: "Fairness and Impartiality",
         },
         {
           id: "c",
-          text: "Reduce the password change requirement to every 2 days.",
+          text: "Compliance",
         },
         {
           id: "d",
-          text: "Extend session timeouts to practical lengths while relying on context-aware access.",
+          text: "Transparency",
         },
         {
           id: "e",
-          text: "Disable all authentication requirements during office hours.",
+          text: "Data protection",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["a", "c"],
       explanation: {
         correct:
-          "Options A, B, and D are correct modernizations. SSO, biometrics, and context-aware session management balance security with usability. C worsens the problem. E is a massive security failure.",
+          "Options A and C are correct. As a user, ethical conduct dictates 'Respect for Policies' and 'Compliance' with the established organizational rules regarding IT resources.",
         incorrect: {
-          c: "Incorrect — Changing passwords every 2 days makes the over-restrictive problem much worse.",
-          e: "Incorrect — Disabling authentication entirely sacrifices all security.",
+          b: "Incorrect — Fairness and Impartiality is a specific ethical responsibility of Administrators, not general users.",
+          d: "Incorrect — Transparency is an Administrator responsibility regarding open communication of policies.",
+          e: "Incorrect — While unapproved software might be a security risk, the direct ethical failure here is disregarding the established rules (Respect for Policies/Compliance).",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q30",
-      text: "If a senior employee with legitimate access downloads massive amounts of data at night to a personal cloud, why is correct access control alone insufficient to stop this? (Select all that apply)",
+      text: "A company requires that every new employee must formally sign a document stating they have read and understood the rules regarding data security, prohibited activities, and software usage. They must also complete a mandatory cybersecurity module. Which component of the Computer Usage Policy does this fulfill? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Access control ensures the user has authorized rights to read data, but it does not regulate what they do with it afterward.",
+          text: "Consequences of Violation",
         },
         {
           id: "b",
-          text: "Access control alone cannot stop an insider threat where an employee misuses their legitimate privileges.",
+          text: "Acknowledgment & Training",
         },
         {
           id: "c",
-          text: "Access control protocols are completely useless and should be abandoned.",
+          text: "Policy Review & Updates",
         },
-        { id: "d", text: "Access control only works during daytime hours." },
+        {
+          id: "d",
+          text: "Network Usage",
+        },
         {
           id: "e",
-          text: "The system lacks behavioral monitoring to detect massive data transfers or unusual login hours.",
+          text: "Authorized Use",
         },
       ],
-      correctOptionIds: ["a", "b", "e"],
+      correctOptionIds: ["b"],
       explanation: {
         correct:
-          "Options A, B, and E are correct. Access control grants the initial right to access but doesn't monitor behavior (like massive external transfers), making it vulnerable to insider threats. C and D are false statements.",
+          "Option B is correct. Requiring a formal signature (agreement) and completion of a security module directly fulfills the 'Acknowledgment & Training' component of the AUP.",
         incorrect: {
-          c: "Incorrect — Access control is foundational for security; it just needs to be paired with monitoring.",
-          d: "Incorrect — Access control functions 24/7, but standard RBAC doesn't inherently block off-hours access unless paired with ABAC/context-aware rules.",
+          a: "Incorrect — Consequences outline the punishment, not the initial agreement phase.",
+          c: "Incorrect — Policy Review & Updates ensures the document is kept current with modern threats, not employee signing.",
+          d: "Incorrect — Network usage dictates bandwidth and remote access rules.",
+          e: "Incorrect — Authorized use defines who can access systems, not the training and agreement tracking.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q31",
-      text: "Which of the following are indicators of malicious intent in an insider threat scenario involving a finance employee? (Select all that apply)",
+      text: "An IT team discovers that an employee has been systematically attempting to escalate their privileges to access restricted payroll data. The system successfully blocked these attempts, but the employee's intent was clearly malicious. How does effective user management serve as a form of Risk Management in this context? (Select all that apply)",
       options: [
-        { id: "a", text: "Logging in during regular business hours." },
-        { id: "b", text: "Downloading large volumes of data late at night." },
-        { id: "c", text: "Submitting a scheduled expense report." },
+        {
+          id: "a",
+          text: "It proactively addresses vulnerabilities in access and permissions.",
+        },
+        {
+          id: "b",
+          text: "It helps prevent insider threats and privilege escalation.",
+        },
+        {
+          id: "c",
+          text: "It completely removes the need for regulatory compliance.",
+        },
         {
           id: "d",
-          text: "Transferring company data to a personal cloud account.",
+          text: "It reduces the risk of unauthorized activities succeeding.",
         },
         {
           id: "e",
-          text: "Violating basic data security, confidentiality, and authorized use policies.",
+          text: "It ensures employees can eventually bypass RBAC if they try hard enough.",
         },
       ],
-      correctOptionIds: ["b", "d", "e"],
+      correctOptionIds: ["a", "b", "d"],
       explanation: {
         correct:
-          "Options B, D, and E are correct. Late-night massive downloads and transfers to personal clouds violate policies and indicate malicious intent. A and C are normal, benign employee behaviors.",
+          "Options A, B, and D are correct. User management acts as risk mitigation by identifying vulnerabilities, blocking hacking attempts/privilege escalation (unauthorized activities), and mitigating insider threats.",
         incorrect: {
-          a: "Incorrect — Logging in during normal business hours is standard, authorized behavior.",
-          c: "Incorrect — Submitting an expense report is an expected task for a finance employee.",
+          c: "Incorrect — User management *improves* compliance; it does not remove the need for it.",
+          e: "Incorrect — Properly managed RBAC should never be bypassable by persistence.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q32",
-      text: "What components should a monitoring and auditing framework include to detect insider threats? (Select all that apply)",
+      text: "In Identity and Access Management (IAM), policies and technical controls are implemented to ensure the CIA triad. If a company enforces strict policies preventing data from being improperly modified by unauthorized personnel, which pillar of the triad is primarily being protected? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Security Information and Event Management (SIEM) systems to aggregate log files.",
+          text: "Confidentiality",
         },
         {
           id: "b",
-          text: "Configuration of SIEM tools to detect behavioral anomalies triggering immediate alerts.",
+          text: "Integrity",
         },
         {
           id: "c",
-          text: "Removal of all Access Control Lists (ACLs) to speed up logging.",
+          text: "Availability",
         },
         {
           id: "d",
-          text: "Implementation of context-aware access to restrict external transfers physically or logically.",
+          text: "Authentication",
         },
         {
           id: "e",
-          text: "Secretly recording employees' personal phone calls at home.",
+          text: "Provisioning",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["b"],
       explanation: {
         correct:
-          "Options A, B, and D are correct. A solid framework uses SIEM for real-time tracking, anomaly detection alerts, and context-aware access restrictions. C destroys security. E violates ethics, privacy laws, and is outside system administration scope.",
+          "Option B is correct. Integrity ensures that data is accurate, reliable, and not improperly modified or corrupted.",
         incorrect: {
-          c: "Incorrect — Removing ACLs destroys system authorization and security.",
-          e: "Incorrect — Secretly monitoring personal off-site communications violates transparency, fairness, and legal privacy standards.",
+          a: "Incorrect — Confidentiality ensures data is only *viewed* by authorized users.",
+          c: "Incorrect — Availability ensures authorized users can access resources when needed, not preventing modification.",
+          d: "Incorrect — Authentication proves identity.",
+          e: "Incorrect — Provisioning is an account creation lifecycle phase.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q33",
-      text: "If an e-learning platform allows registration with only an unverified email, simple passwords, and no ID validation, what are the weaknesses? (Select all that apply)",
+      text: "To address the vulnerabilities of a compromised admin account that had no secondary verification, the company mandates MFA for all high-privilege roles. In an MFA system, which combinations represent valid distinct authentication factors? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Lack of an email verification step (like OTP or link) prior to account activation.",
+          text: "A password AND a PIN code",
         },
         {
           id: "b",
-          text: "The credential setup does not enforce strong password management policies.",
+          text: "A password AND an OTP token",
         },
         {
           id: "c",
-          text: "The platform utilizes a complex Attribute-Based Access Control system.",
+          text: "A smart card AND a fingerprint scan",
         },
         {
           id: "d",
-          text: "No mechanism exists to validate the personal identity of the individual registering.",
+          text: "A fingerprint scan AND a retina scan",
         },
         {
           id: "e",
-          text: "The system automatically mandates biometric logins.",
+          text: "A PIN code AND a facial recognition scan",
         },
       ],
-      correctOptionIds: ["a", "b", "d"],
+      correctOptionIds: ["b", "c", "e"],
       explanation: {
         correct:
-          "Options A, B, and D are correct. The weaknesses outlined in the scenario are missing email verification, simple password rules, and lack of identity validation. C and E are features the weak system does not have.",
+          "Options B, C, and E are correct because they combine distinct categories: (B) Know+Have, (C) Have+Are, and (E) Know+Are. True MFA requires combining factors from *different* categories.",
         incorrect: {
-          c: "Incorrect — A weak registration system does not imply the presence of a complex ABAC system.",
-          e: "Incorrect — The scenario specifically states the system only uses simple password rules, not biometrics.",
+          a: "Incorrect — A password and a PIN are both 'Something you know'. Using two from the same category is not true MFA.",
+          d: "Incorrect — Fingerprint and retina are both 'Something you are'. This is also not true MFA across multiple distinct categories.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q34",
-      text: "How do weaknesses in the registration process (no verification, simple passwords) affect the system? (Select all that apply)",
+      text: "The IT department is conducting an internal seminar on Access Control Implementation Layers. They explain that securing the building premises and server rooms is just as critical as securing the databases. Which technique falls specifically under Logical Access Control? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Authentication is compromised because the system cannot reliably validate the claimed identity, allowing impersonation.",
+          text: "Access Control Lists (ACLs)",
         },
         {
           id: "b",
-          text: "Data integrity is destroyed as fake accounts can alter or corrupt academic assessments.",
+          text: "Capability-based systems",
         },
         {
           id: "c",
-          text: "System trust breaks down due to the inability to prevent fraud and protect security.",
+          text: "Biometric locks on server room doors",
         },
-        { id: "d", text: "Data backup speeds increase dramatically." },
+        {
+          id: "d",
+          text: "Turnstiles at the building entrance",
+        },
         {
           id: "e",
-          text: "The servers become immune to physical hardware failure.",
+          text: "Context-aware access restrictions for an application",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "b", "e"],
       explanation: {
         correct:
-          "Options A, B, and C are correct. Weak registration ruins authentication reliability, destroys data integrity via fake accounts, and erodes system trust. D and E are entirely unrelated physical/infrastructure elements.",
+          "Options A, B, and E are correct. ACLs, capability-based systems, and context-aware software restrictions are all logical access controls used to protect systems, databases, and applications digitally.",
         incorrect: {
-          d: "Incorrect — Registration weaknesses have no direct positive effect on data backup speeds.",
-          e: "Incorrect — Logical software vulnerabilities do not make servers immune to physical hardware failures.",
+          c: "Incorrect — Biometric locks on physical doors are Physical Access Controls.",
+          d: "Incorrect — Turnstiles manage physical building access.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q35",
-      text: "When redesigning a weak registration system, what trade-off occurs between security and accessibility? (Select all that apply)",
+      text: "An organization faces constant issues with 'orphan accounts'. When an employee leaves, their active account is forgotten and left unmonitored, creating a prime target for cyber threats. Which phase of the user management lifecycle is the organization failing to execute properly? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Security is enhanced by preventing impersonation and automated fake accounts.",
+          text: "Provisioning (Onboarding)",
         },
         {
           id: "b",
-          text: "Accessibility improves because users no longer need passwords.",
+          text: "Deprovisioning (Offboarding)",
         },
         {
           id: "c",
-          text: "Accessibility and user experience suffer because extra friction is added to the onboarding process.",
+          text: "Authentication",
         },
         {
           id: "d",
-          text: "Users are required to take extra steps, such as clicking verification links or providing documents, before using the platform.",
+          text: "Revoking system access",
         },
         {
           id: "e",
-          text: "Security is weakened because multi-factor authentication creates loopholes.",
+          text: "Archiving user data if required",
         },
       ],
-      correctOptionIds: ["a", "c", "d"],
+      correctOptionIds: ["b", "d"],
       explanation: {
         correct:
-          "Options A, C, and D are correct. Strengthening registration enhances security but decreases accessibility by adding friction (extra steps, verifications) to the onboarding process. B is incorrect because adding verification doesn't inherently remove passwords. E is false; MFA strengthens security.",
+          "Options B and D are correct. Leaving an orphan account active means the organization failed to perform Deprovisioning (Offboarding), specifically the step of revoking system access and disabling the account.",
         incorrect: {
-          b: "Incorrect — The redesign involves adding MFA and identity checks, which does not mean passwords are removed entirely, and it decreases immediate accessibility.",
-          e: "Incorrect — Multi-factor authentication significantly strengthens security; it does not create loopholes.",
+          a: "Incorrect — Onboarding creates the account; the failure happens at the end of the lifecycle.",
+          c: "Incorrect — Authentication verifies identity, it does not manage the lifecycle of the account.",
+          e: "Incorrect — While archiving is part of offboarding, failing to archive data does not create the security vulnerability of an active orphan account.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q36",
-      text: "Which of the following is true regarding Federated Identity? (Select all that apply)",
+      text: "A university’s User Privilege Policy must be redesigned to ensure minimal security exposure while maintaining operational functionality. The lead architect insists that users must strictly be assigned only the permissions necessary to perform their specific job tasks, and nothing more. What principle is the architect applying? (Select all that apply)",
       options: [
-        { id: "a", text: "It is an advanced authentication mechanism." },
+        {
+          id: "a",
+          text: "Principle of Least Privilege (POLP)",
+        },
         {
           id: "b",
-          text: "It relies on trust-based authentication across multiple organizations.",
+          text: "Separation of Duties (SOD)",
         },
         {
           id: "c",
-          text: "It is a physical access control technique for server rooms.",
+          text: "Discretionary Access Control (DAC)",
         },
         {
           id: "d",
-          text: "It ensures that users must maintain separate, unique passwords for every single organization they interact with.",
+          text: "Account Lockout",
         },
         {
           id: "e",
-          text: "It is categorized under authorization rather than authentication.",
+          text: "Minimum required access",
         },
       ],
-      correctOptionIds: ["a", "b"],
+      correctOptionIds: ["a", "e"],
       explanation: {
         correct:
-          "Options A and B are correct. Federated Identity is an advanced authentication mechanism that allows trust-based authentication across organizations. C is false. D is the opposite of its purpose. E is false; it is an authentication method.",
+          "Options A and E are correct. The architect is applying the Principle of Least Privilege (POLP), which ensures users only get the minimum required access to perform their duties.",
         incorrect: {
-          c: "Incorrect — It is a logical authentication method, not a physical server room access technique.",
-          d: "Incorrect — Federated Identity aims to reduce the need for multiple credentials by establishing trust across domains.",
-          e: "Incorrect — Federated identity validates identity (Authentication), not just permissions (Authorization).",
+          b: "Incorrect — SOD prevents conflicts of interest by dividing tasks among multiple people, which is different from granting minimal access.",
+          c: "Incorrect — DAC relies on owner discretion, not strict minimal access enforcement.",
+          d: "Incorrect — Account lockout handles failed login attempts.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q37",
-      text: "What is the purpose of the 'Least Privilege Principle' in authorization? (Select all that apply)",
+      text: "A corporate auditor is reviewing the 'Controlling User Resources' framework. They notice that the administrator can restrict CPU usage per application, set maximum storage quotas, and define which specific directories a user can execute files in based on their role. What key aspects of resource control are demonstrated here? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "It ensures users only get the minimum required access to perform their jobs.",
+          text: "Permissions & Access Control (defining execute rights)",
         },
         {
           id: "b",
-          text: "It prevents conflict of interest by separating duties.",
+          text: "Policies & Enforcement (restricting CPU and storage quotas)",
         },
         {
           id: "c",
-          text: "It reduces the risk of accidental data exposure or malicious modification.",
+          text: "Email Verification",
         },
         {
           id: "d",
-          text: "It grants administrative rights to all users temporarily.",
+          text: "Monitoring & Reporting",
         },
-        { id: "e", text: "It relies on users' biometric data." },
+        {
+          id: "e",
+          text: "Federated Identity",
+        },
       ],
-      correctOptionIds: ["a", "c"],
+      correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Options A and C are correct. Least Privilege limits users to minimal necessary access, reducing the risk of errors or attacks. B describes Separation of Duties. D is the exact opposite of the principle. E relates to authentication.",
+          "Options A and B are correct. Defining execute rights is part of Permissions & Access Control (e.g., using RBAC/ACLs), while restricting CPU and storage quotas falls under Policies & Enforcement.",
         incorrect: {
-          b: "Incorrect — Preventing conflict of interest is the specific goal of Separation of Duties (SOD), a different authorization principle.",
-          d: "Incorrect — Granting administrative rights to all users violates the principle of least privilege.",
-          e: "Incorrect — Biometric data is used for authentication, not for defining authorization principles.",
+          c: "Incorrect — Email verification is part of user registration.",
+          d: "Incorrect — While monitoring tracks resource consumption, the scenario explicitly describes restricting and enforcing limits, not tracking them.",
+          e: "Incorrect — Federated Identity is an authentication method.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q38",
-      text: "During the Maintenance phase of Provisioning & Deprovisioning, what activities occur? (Select all that apply)",
+      text: "An IT department is drafting the 'Account Policy' guidelines for a new corporate network. To reduce security risks associated with employees leaving their computers unattended in the office, which specific policy configuration should they prioritize? (Select all that apply)",
       options: [
-        { id: "a", text: "Initial credential setup for a new hire." },
+        {
+          id: "a",
+          text: "Session Management Policies",
+        },
         {
           id: "b",
-          text: "Role updates due to promotion or department transfer.",
+          text: "Session timeouts and automatic logouts",
         },
-        { id: "c", text: "Archiving a departing user's data." },
-        { id: "d", text: "Access reviews and adjustments." },
-        { id: "e", text: "Disabling an account permanently." },
+        {
+          id: "c",
+          text: "Password complexity requirements",
+        },
+        {
+          id: "d",
+          text: "Audit and Compliance Policies",
+        },
+        {
+          id: "e",
+          text: "Account Lockout Policies",
+        },
       ],
-      correctOptionIds: ["b", "d"],
+      correctOptionIds: ["a", "b"],
       explanation: {
         correct:
-          "Options B and D are correct. The Maintenance phase involves role updates (promotions/transfers) and periodic access reviews. A occurs during Onboarding (Provisioning). C and E occur during Offboarding (Deprovisioning).",
+          "Options A and B are correct. Session Management Policies control session timeouts and automatic logouts, which directly mitigate the risk of an unauthorized person accessing an unattended, already-logged-in session.",
         incorrect: {
-          a: "Incorrect — Initial credential setup occurs during the Provisioning (Onboarding) phase.",
-          c: "Incorrect — Archiving data is part of the Deprovisioning (Offboarding) phase.",
-          e: "Incorrect — Disabling an account is a Deprovisioning task.",
+          c: "Incorrect — Password complexity does not protect an already open, unattended session.",
+          d: "Incorrect — Auditing tracks activity but does not actively close an unattended session.",
+          e: "Incorrect — Lockout policies apply to failed login attempts, not unattended active sessions.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q39",
-      text: "What are the common tools and outputs associated with Monitoring & Auditing? (Select all that apply)",
+      text: "When resolving a data breach case involving a former administrator whose account remained active for 8 months, the security consultant proposes a layered strategy. Which element serves as the 'Monitoring mechanism' in their proposed solution? (Select all that apply)",
       options: [
-        { id: "a", text: "Log files" },
+        {
+          id: "a",
+          text: "Deploying Security Information and Event Management (SIEM) systems",
+        },
         {
           id: "b",
-          text: "Security Information and Event Management (SIEM) systems",
+          text: "Enforcing Multi-Factor Authentication (MFA) across the board",
         },
-        { id: "c", text: "Compliance reports such as ISO 27001 or GDPR" },
-        { id: "d", text: "Biometric fingerprint scanners" },
-        { id: "e", text: "Smart cards" },
+        {
+          id: "c",
+          text: "Mandating immediate disabling of accounts upon employee departure",
+        },
+        {
+          id: "d",
+          text: "Actively tracking user activities in real-time to flag anomalies",
+        },
+        {
+          id: "e",
+          text: "Conducting regular access reviews",
+        },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "d"],
       explanation: {
         correct:
-          "Options A, B, and C are correct tools/outputs for monitoring and auditing. D and E are physical hardware devices used for Authentication.",
+          "Options A and D are correct. Deploying a SIEM system and tracking activities in real-time constitute the technical monitoring mechanisms required to detect anomalies.",
         incorrect: {
-          d: "Incorrect — Biometric scanners are authentication tools, not monitoring or auditing tools.",
-          e: "Incorrect — Smart cards are physical authentication tokens ('something you have'), not auditing outputs.",
+          b: "Incorrect — MFA is a 'Technical Control' layer for authentication, not a monitoring mechanism.",
+          c: "Incorrect — Mandating disabling is a 'Policy' layer.",
+          e: "Incorrect — Access reviews are a policy/maintenance activity, distinct from automated real-time SIEM monitoring.",
         },
       },
     },
     {
       type: QuestionType.MULTIPLE_SELECT,
       id: "ms-q40",
-      text: "In the context of ethical conduct, why is transparency important when implementing behavioral monitoring tools like SIEM? (Select all that apply)",
+      text: "A corporate IT helpdesk observes that 70% of their daily tickets are simply password reset requests. The CISO wants to implement a solution that drastically reduces this administrative overhead while providing a seamless, intuitive experience for employees accessing multiple internal applications. Which solution best meets these criteria? (Select all that apply)",
       options: [
         {
           id: "a",
-          text: "Administrators must uphold ethical responsibilities like fairness.",
+          text: "Single Sign-On (SSO)",
         },
         {
           id: "b",
-          text: "Monitoring practices should be clearly defined and communicated to users through a Computer Usage Policy.",
+          text: "Mandatory Access Control (MAC)",
         },
         {
           id: "c",
-          text: "It ensures employees are aware of data protection measures and their rights.",
+          text: "Increasing password length to 28 characters",
         },
         {
           id: "d",
-          text: "It allows employees to easily delete their own audit logs.",
+          text: "Federated Identity",
         },
         {
           id: "e",
-          text: "It guarantees that the company can secretly record employees without legal repercussions.",
+          text: "Self-service options for password resets",
         },
       ],
-      correctOptionIds: ["a", "b", "c"],
+      correctOptionIds: ["a", "e"],
       explanation: {
         correct:
-          "Options A, B, and C are correct. Transparency requires administrators to act fairly, communicate monitoring practices via policies (AUP), and ensure employees know their rights. D is a security violation. E is unethical and often illegal.",
+          "Options A and E are correct. SSO allows users to log in once for all applications, vastly reducing password fatigue. Self-service password resets directly remove the burden from the IT helpdesk, lowering administrative overhead while keeping the experience intuitive.",
         incorrect: {
-          d: "Incorrect — Employees must never be able to delete their own audit logs, as this destroys data integrity and accountability.",
-          e: "Incorrect — Transparency is the exact opposite of secretly recording employees; secret recording violates ethical principles and privacy laws.",
+          b: "Incorrect — MAC is an authorization model and does nothing to help with password resets.",
+          c: "Incorrect — Increasing password length will likely cause *more* users to forget their passwords, increasing helpdesk tickets.",
+          d: "Incorrect — Federated Identity is primarily for trust across *different* organizations, whereas SSO is best for multiple *internal* applications as requested in the scenario.",
         },
       },
     },
