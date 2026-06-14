@@ -6,7 +6,9 @@ import {
   QuizMode,
   QuizProgress,
   QuizStatistics,
+  isMultipleSelectQuestion,
 } from "../types/quiz";
+import { isAnswerCorrect } from "../utils/questionUtils";
 import {
   calculateQuizStatistics,
   clearQuizProgress,
@@ -24,7 +26,7 @@ interface UseQuizProps {
 interface UseQuizReturn {
   currentQuestion: Question | null;
   currentQuestionIndex: number;
-  selectedOptionId: string | null;
+  selectedOptionIds: string[];
   isAnswerChecked: boolean;
   isCorrect: boolean | null;
   quizMode: QuizMode;
@@ -33,7 +35,6 @@ interface UseQuizReturn {
   statistics: QuizStatistics;
   isCompleted: boolean;
 
-  // Actions
   selectOption: (optionId: string) => void;
   checkAnswer: () => void;
   nextQuestion: () => void;
@@ -42,64 +43,66 @@ interface UseQuizReturn {
 }
 
 /**
- * Custom hook for managing quiz state
+ * Manages quiz state for both single-select (MCQ) and multi-select (checkbox) questions.
  */
 export const useQuiz = ({
   quiz,
   initialMode = QuizMode.SEQUENTIAL,
 }: UseQuizProps): UseQuizReturn => {
-  // Load saved progress
   const [progress, setProgress] = useState<QuizProgress | undefined>();
   const [quizMode, setQuizMode] = useState<QuizMode>(initialMode);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+  const [selectedOptionIds, setSelectedOptionIds] = useState<string[]>([]);
   const [isAnswerChecked, setIsAnswerChecked] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
-  // Initialize quiz
   useEffect(() => {
     const savedProgress = getQuizProgress(quiz.id);
-
     setProgress(savedProgress);
 
-    // Get questions based on mode
     const modeQuestions = getQuestionsByMode(quiz, quizMode, savedProgress);
     setQuestions(modeQuestions);
 
-    // Reset state
     setCurrentQuestionIndex(0);
-    setSelectedOptionId(null);
+    setSelectedOptionIds([]);
     setIsAnswerChecked(false);
     setIsCorrect(null);
   }, [quiz, quizMode]);
 
-  // Current question
   const currentQuestion =
     questions.length > 0 ? questions[currentQuestionIndex] : null;
 
-  // Calculate statistics
   const statistics = calculateQuizStatistics(quiz, progress);
-
-  // Check if quiz is completed
   const isCompleted = isQuizCompleted(quiz, progress);
 
-  // Select an option
+  /**
+   * MCQ: replaces selection with the clicked option.
+   * Multi-select: toggles the clicked option in the selection array.
+   */
   const selectOption = (optionId: string) => {
-    if (isAnswerChecked) return;
-    setSelectedOptionId(optionId);
+    if (isAnswerChecked || !currentQuestion) return;
+
+    if (isMultipleSelectQuestion(currentQuestion)) {
+      setSelectedOptionIds((prev) =>
+        prev.includes(optionId)
+          ? prev.filter((id) => id !== optionId)
+          : [...prev, optionId],
+      );
+    } else {
+      setSelectedOptionIds([optionId]);
+    }
   };
 
-  // Check answer
   const checkAnswer = () => {
-    if (!currentQuestion || !selectedOptionId || isAnswerChecked) return;
+    if (!currentQuestion || selectedOptionIds.length === 0 || isAnswerChecked) {
+      return;
+    }
 
-    const isAnswerCorrect =
-      selectedOptionId === currentQuestion.correctOptionId;
-    setIsCorrect(isAnswerCorrect);
+    const answerCorrect = isAnswerCorrect(currentQuestion, selectedOptionIds);
+    setIsCorrect(answerCorrect);
     setIsAnswerChecked(true);
 
-    // Update progress
     const updatedProgress: QuizProgress = progress
       ? { ...progress }
       : {
@@ -108,42 +111,36 @@ export const useQuiz = ({
           wrongQuestionIds: [],
         };
 
-    // Add answered question
     updatedProgress.answeredQuestions.push({
       questionId: currentQuestion.id,
-      selectedOptionId,
-      isCorrect: isAnswerCorrect,
+      selectedOptionIds: [...selectedOptionIds],
+      isCorrect: answerCorrect,
     });
 
-    // Update wrong questions list
-    if (!isAnswerCorrect) {
+    if (!answerCorrect) {
       if (!updatedProgress.wrongQuestionIds.includes(currentQuestion.id)) {
         updatedProgress.wrongQuestionIds.push(currentQuestion.id);
       }
     } else {
-      // Remove from wrong questions if answered correctly
       updatedProgress.wrongQuestionIds =
         updatedProgress.wrongQuestionIds.filter(
-          (id) => id !== currentQuestion.id
+          (id) => id !== currentQuestion.id,
         );
     }
 
-    // Save progress
     saveQuizProgress(updatedProgress);
     setProgress(updatedProgress);
   };
 
-  // Move to next question
   const nextQuestion = () => {
     if (!isAnswerChecked) return;
 
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedOptionId(null);
+      setSelectedOptionIds([]);
       setIsAnswerChecked(false);
       setIsCorrect(null);
     } else {
-      // Quiz completed
       const updatedProgress = { ...progress! };
       updatedProgress.completedAt = new Date();
       saveQuizProgress(updatedProgress);
@@ -152,26 +149,23 @@ export const useQuiz = ({
     }
   };
 
-  // Change quiz mode
   const changeMode = (mode: QuizMode) => {
     if (mode === quizMode) return;
     setQuizMode(mode);
   };
 
-  // Reset quiz (now also clears progress)
   const resetQuiz = () => {
     clearQuizProgress(quiz.id);
     setProgress(undefined);
     setCurrentQuestionIndex(0);
-    setSelectedOptionId(null);
+    setSelectedOptionIds([]);
     setIsAnswerChecked(false);
     setIsCorrect(null);
 
-    // Get questions based on mode
     const modeQuestions = getQuestionsByMode(
       quiz,
       QuizMode.SEQUENTIAL,
-      undefined
+      undefined,
     );
     setQuestions(modeQuestions);
     setQuizMode(QuizMode.SEQUENTIAL);
@@ -180,7 +174,7 @@ export const useQuiz = ({
   return {
     currentQuestion,
     currentQuestionIndex,
-    selectedOptionId,
+    selectedOptionIds,
     isAnswerChecked,
     isCorrect,
     quizMode,
@@ -188,8 +182,6 @@ export const useQuiz = ({
     progress,
     statistics,
     isCompleted,
-
-    // Actions
     selectOption,
     checkAnswer,
     nextQuestion,

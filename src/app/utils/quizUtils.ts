@@ -144,20 +144,17 @@ export const isQuestionAnswered = (
 };
 
 /**
- * Get the selected option ID for a question
- * @param questionId - The question ID
- * @param progress - The quiz progress
- * @returns The selected option ID or undefined
+ * Get the selected option ids for a question
  */
-export const getSelectedOptionId = (
+export const getSelectedOptionIds = (
   questionId: string,
-  progress?: QuizProgress
-): string | undefined => {
-  if (!progress) return undefined;
+  progress?: QuizProgress,
+): string[] => {
+  if (!progress) return [];
   const answer = progress.answeredQuestions.find(
-    (a) => a.questionId === questionId
+    (a) => a.questionId === questionId,
   );
-  return answer?.selectedOptionId;
+  return answer?.selectedOptionIds ?? [];
 };
 
 /**

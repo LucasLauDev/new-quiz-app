@@ -1,33 +1,9 @@
-// Sample quiz data
 import { Quiz, QuizCategory } from "../types/quiz";
-import { etikaCombine } from "./combine";
-import { DSTopik4 } from "./deepseek-4";
-import { DSTopik5 } from "./deepseek-5";
-import { dekolonisasi } from "./dekolonisasi";
-import { epistemologi } from "./epistemologi";
-import { garisMasa } from "./etika-time";
-import { pengaruhIct } from "./ict";
-import { ideologi } from "./ideologi";
-import { kepelbagaian } from "./kepelbagaian";
-import { kesepatuan } from "./kesepatuan";
-import { konsepEtika } from "./konsep-etika";
-import { metafizik } from "./metafizik";
-import { pembinaanPeradaban } from "./pembinaan-peradaban";
-import { persekutuan } from "./persekutuan";
-import { QWTopik3 } from "./qwen-3";
-import { sysadminTopic1 } from "./system_admin/topic-1";
-import { sysadminTopic2 } from "./system_admin/topic-2";
-import { tanggungjawabSosial } from "./tanggungjawab";
-import { tokohFalsafah } from "./tokoh-falsafah";
-import { wirelessTopic1 } from "./wireless/topic-1";
-import { wirelessTopic2 } from "./wireless/topic-2";
-import { wirelessTopic3 } from "./wireless/topic-3";
-import { wirelessTopic3GPT } from "./wireless/topic-3-gpt";
-import { wirelessTopic4 } from "./wireless/topic-4";
+import { etikaQuizzes } from "./etika";
+import { falsafahQuizzes } from "./falsafah";
+import { systemAdminQuizzes } from "./system_admin";
+import { wirelessQuizzes } from "./wireless";
 
-/**
- * Quiz categories
- */
 export const quizCategories: QuizCategory[] = [
   {
     id: "etika",
@@ -93,6 +69,11 @@ export const quizCategories: QuizCategory[] = [
         id: "etika-combine",
         name: "All Topiks",
         quizId: "etika-combine",
+      },
+      {
+        id: "multiple-select-samples",
+        name: "Multiple Answer (Samples)",
+        quizId: "multiple-select-samples",
       },
     ],
   },
@@ -179,70 +160,28 @@ export const quizCategories: QuizCategory[] = [
   },
 ];
 
-/**
- * Quiz data
- */
 export const quizzes: Quiz[] = [
-  metafizik,
-  pembinaanPeradaban,
-  persekutuan,
-  pengaruhIct,
-  ideologi,
-  tanggungjawabSosial,
-  tokohFalsafah,
-  kesepatuan,
-  kepelbagaian,
-  epistemologi,
-  dekolonisasi,
-  garisMasa,
-  DSTopik4,
-  DSTopik5,
-  QWTopik3,
-  etikaCombine,
-  konsepEtika,
-  wirelessTopic1,
-  wirelessTopic2,
-  wirelessTopic3,
-  wirelessTopic3GPT,
-  wirelessTopic4,
-  sysadminTopic1,
-  sysadminTopic2,
+  ...etikaQuizzes,
+  ...falsafahQuizzes,
+  ...wirelessQuizzes,
+  ...systemAdminQuizzes,
 ];
 
-/**
- * Get quiz by ID
- * @param quizId - The quiz ID
- * @returns The quiz or undefined if not found
- */
-export const getQuizById = (quizId: string): Quiz | undefined => {
-  return quizzes.find((quiz) => quiz.id === quizId);
-};
+const quizById = new Map(quizzes.map((quiz) => [quiz.id, quiz]));
 
-/**
- * Get all quizzes for a category
- * @param categoryId - The category ID
- * @returns Array of quizzes for the category
- */
-export const getQuizzesByCategory = (categoryId: string): Quiz[] => {
-  return quizzes.filter((quiz) => quiz.categoryId === categoryId);
-};
+export const getQuizById = (quizId: string): Quiz | undefined =>
+  quizById.get(quizId);
 
-/**
- * Get all quizzes for a subcategory
- * @param categoryId - The category ID
- * @param subcategoryId - The subcategory ID
- * @returns Array of quizzes for the subcategory
- */
+export const getQuizzesByCategory = (categoryId: string): Quiz[] =>
+  quizzes.filter((quiz) => quiz.categoryId === categoryId);
+
 export const getQuizzesBySubcategory = (
   categoryId: string,
   subcategoryId: string,
-): Quiz[] => {
-  return quizzes.filter(
+): Quiz[] =>
+  quizzes.filter(
     (quiz) =>
       quiz.categoryId === categoryId && quiz.subcategoryId === subcategoryId,
   );
-};
 
-export const getQuizzesIds = (): string[] => {
-  return quizzes.map((quiz) => quiz.id);
-};
+export const getQuizzesIds = (): string[] => quizzes.map((quiz) => quiz.id);

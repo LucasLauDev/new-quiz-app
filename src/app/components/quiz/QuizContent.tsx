@@ -23,7 +23,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
   const {
     currentQuestion,
     currentQuestionIndex,
-    selectedOptionId,
+    selectedOptionIds,
     isAnswerChecked,
     isCorrect,
     quizMode,
@@ -169,7 +169,7 @@ const QuizContent = ({ quizId }: { quizId: string }) => {
             ) : currentQuestion ? (
               <QuestionCard
                 question={currentQuestion}
-                selectedOptionId={selectedOptionId || null}
+                selectedOptionIds={selectedOptionIds}
                 isAnswerChecked={isAnswerChecked}
                 isCorrect={isCorrect}
                 onSelectOption={selectOption}
