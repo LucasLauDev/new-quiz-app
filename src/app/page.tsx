@@ -1,7 +1,7 @@
 "use client";
 
 // Main page component
-import { quizCategories, quizzes } from "./data/quizData";
+import { quizCategories, getQuestionCount } from "./data/quizData";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -183,7 +183,7 @@ export default function Home() {
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 opacity-80" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.855 12A1 1 0 007.72 13.5h4.56a1 1 0 00.866-1.5l-2.28-4A1 1 0 0010 7z" clipRule="evenodd" />
                           </svg>
-                          {quizzes.find((q) => q.id === topic.quizId)?.questions.length || 0} Questions
+                          {getQuestionCount(topic.quizId)} Questions
                         </span>
                       </Link>
                     ))}

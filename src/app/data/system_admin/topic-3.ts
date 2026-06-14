@@ -1,6 +1,6 @@
 import { QuestionType, Quiz } from "@/app/types/quiz";
 
-export const sysadminTopic2: Quiz = {
+export const sysadminTopic3: Quiz = {
   id: "sysadmin-topic-3",
   categoryId: "system-admin",
   subcategoryId: "sysadmin-topic-3",
